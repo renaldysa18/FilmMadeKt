@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+def config = rootProject.extensions.getByName("ext")
+
+android {
+    compileSdkVersion config["compileSdkVersion"]
+    defaultConfig {
+        applicationId "com.redveloper.filmmadekt"
+        minSdkVersion config["minSdkVersion"]
+        targetSdkVersion config["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation config.commonDependency.kotlin
+    implementation config.commonDependency.supportLib
+    implementation config.commonDependency.constraintLib
+    implementation config.commonDependency.design
+    implementation config.commonDependency.cardview
+    implementation config.commonDependency.recyclerview
+    implementation config.commonDependency.retrofit
+    implementation config.commonDependency.retrofitRxjava
+    implementation config.commonDependency.retrofitGson
+    implementation config.commonDependency.rxjavaReactive
+    implementation config.commonDependency.rxAndroid
+    implementation config.commonDependency.gson
+    implementation config.commonDependency.glide
+    implementation config.commonDependency.shimmer
+
+    implementation 'com.android.support:support-v4:28.0.0'
+    testImplementation config.commonDependency.jUnitLib
+    annotationProcessor config.commonDependency.glideCompiler
+    androidTestImplementation config.commonDependency.testRunner
+    androidTestImplementation config.commonDependency.espresso
+
+}
