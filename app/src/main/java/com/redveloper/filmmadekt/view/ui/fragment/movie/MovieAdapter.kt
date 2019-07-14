@@ -10,6 +10,18 @@ import com.redveloper.filmmadekt.model.movie.ResponMovie
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class MovieAdapter(val items : List<ResponMovie.ResultMovie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>(){
+
+    private lateinit var itemClickListener : OnItemClickListener
+
+    fun setOnItemClickListener(itemClickListener: OnItemClickListener){
+        this.itemClickListener = itemClickListener
+    }
+
+    interface OnItemClickListener{
+        fun OnItemClick(pos : Int)
+    }
+
+
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.list_item, p0, false))
     }
@@ -19,11 +31,14 @@ class MovieAdapter(val items : List<ResponMovie.ResultMovie>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0.binding(items.get(p1))
+        p0.binding(items.get(p1), itemClickListener)
     }
 
     class ViewHolder(itemview : View) : RecyclerView.ViewHolder(itemview){
-        fun binding(data : ResponMovie.ResultMovie) {
+        fun binding(
+            data: ResponMovie.ResultMovie,
+            itemClickListener: OnItemClickListener
+        ) {
             itemView.textview_title_list.setText(data.title)
             itemView.textview_description_list.setText(data.overview)
 
@@ -31,6 +46,14 @@ class MovieAdapter(val items : List<ResponMovie.ResultMovie>) : RecyclerView.Ada
                 .load(itemView.context.resources.getString(R.string.BASE_IMAGE) + data.poster_path)
                 .into(itemView.imageview_list)
 
+            itemView.setOnClickListener{
+                if(itemClickListener != null){
+                    val pos : Int? = adapterPosition
+                    if(pos != null){
+                        itemClickListener.OnItemClick(pos)
+                    }
+                }
+            }
         }
     }
 

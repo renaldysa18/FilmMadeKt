@@ -1,5 +1,6 @@
 package com.redveloper.filmmadekt.view.view
 
+import android.content.Context
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
 
@@ -19,6 +20,8 @@ interface MainView {
             dateGte: String,
             dateLte: String
         )
+
+        fun toDetailMovie(context: Context, pos : Int)
     }
 
     interface TvshowView {

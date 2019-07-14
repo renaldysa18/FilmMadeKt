@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.ui.fragment.movie
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -13,10 +14,11 @@ import android.widget.Toast
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.presenter.movie.MoviePresenter
+import com.redveloper.filmmadekt.view.ui.activity.movie.MovieDetail
 import com.redveloper.filmmadekt.view.view.MainView
 import kotlinx.android.synthetic.main.fragment_movie.view.*
 
-class MovieFragment : Fragment(), MainView.MovieView {
+class MovieFragment : Fragment(), MainView.MovieView, MovieAdapter.OnItemClickListener {
 
 
     private lateinit var adapter: MovieAdapter
@@ -46,6 +48,11 @@ class MovieFragment : Fragment(), MainView.MovieView {
     override fun showData(data: ArrayList<ResponMovie.ResultMovie>) {
         adapter = MovieAdapter(data)
         view?.recyclerview_movie?.adapter = adapter
+        adapter.setOnItemClickListener(this)
+    }
+
+    override fun OnItemClick(pos: Int) {
+        context?.let { presenter.toDetailMovie(it, pos) }
     }
 
     override fun makeToast(msg: String) {
