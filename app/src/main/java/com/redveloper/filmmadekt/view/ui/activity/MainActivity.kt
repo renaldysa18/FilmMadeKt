@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.view.ui.fragment.FavoriteFragment
-import com.redveloper.filmmadekt.view.ui.fragment.MovieFragment
+import com.redveloper.filmmadekt.view.ui.fragment.movie.MovieFragment
 import com.redveloper.filmmadekt.view.ui.fragment.TvshowFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        //default
+        moveFragment(MovieFragment())
     }
 
     fun moveFragment(fragment: Fragment) {

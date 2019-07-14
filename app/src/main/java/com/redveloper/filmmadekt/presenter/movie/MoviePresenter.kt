@@ -15,6 +15,8 @@ class MoviePresenter(val view: MainView.MovieView) : MainView.MoviePresenter {
     private var compositeDisposable: CompositeDisposable? = null
 
     override fun getMoview(apikey: String, dateGte: String, dateLte: String) {
+        view.showShimemr()
+
         compositeDisposable = CompositeDisposable()
         compositeDisposable?.add(
             baseApi.getDiscoverMoview(apikey, dateGte, dateLte)
@@ -26,10 +28,12 @@ class MoviePresenter(val view: MainView.MovieView) : MainView.MoviePresenter {
                         }
 
                         override fun onNext(t: ResponMovie) {
-                            view.makeToast(t.toString())
+                            view.showData(t.results as ArrayList<ResponMovie.ResultMovie>)
+                            view.hideShimmer()
                         }
 
                         override fun onError(e: Throwable) {
+                            view.hideShimmer()
                             view.makeToast(e.message.toString())
                         }
 
