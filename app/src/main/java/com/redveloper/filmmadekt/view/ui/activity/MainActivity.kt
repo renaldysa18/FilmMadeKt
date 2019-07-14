@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.view.ui.fragment.FavoriteFragment
 import com.redveloper.filmmadekt.view.ui.fragment.movie.MovieFragment
-import com.redveloper.filmmadekt.view.ui.fragment.TvshowFragment
+import com.redveloper.filmmadekt.view.ui.fragment.tvshow.TvshowFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
