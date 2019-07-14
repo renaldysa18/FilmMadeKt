@@ -48,8 +48,8 @@ class MovieAdapter(val items : List<ResponMovie.ResultMovie>) : RecyclerView.Ada
 
             itemView.setOnClickListener{
                 if(itemClickListener != null){
-                    val pos : Int? = adapterPosition
-                    if(pos != null){
+                    val pos : Int = adapterPosition
+                    if(pos != RecyclerView.NO_POSITION){
                         itemClickListener.OnItemClick(pos)
                     }
                 }

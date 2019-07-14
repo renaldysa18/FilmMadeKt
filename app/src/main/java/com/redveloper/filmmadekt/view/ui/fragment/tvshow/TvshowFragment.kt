@@ -16,7 +16,7 @@ import com.redveloper.filmmadekt.presenter.tvshow.TvshowPresenter
 import com.redveloper.filmmadekt.view.view.MainView
 import kotlinx.android.synthetic.main.fragment_tvshow.view.*
 
-class TvshowFragment : Fragment() ,  MainView.TvshowView {
+class TvshowFragment : Fragment() ,  MainView.TvshowView, TvshowAdapter.OnItemClickListener {
     private lateinit var adapter: TvshowAdapter
     private lateinit var presenter: TvshowPresenter
     override fun onCreateView(
@@ -56,5 +56,11 @@ class TvshowFragment : Fragment() ,  MainView.TvshowView {
     override fun showData(results: List<ResponTvshow.ResultTvShow>?) {
         adapter = TvshowAdapter(results as ArrayList<ResponTvshow.ResultTvShow>)
         view?.recyclerview_tvshow?.adapter = adapter
+
+        adapter.setOnClickListener(this)
+    }
+
+    override fun OnClickItem(pos: Int) {
+        context?.let { presenter.toDetailTvshow(it, pos) }
     }
 }

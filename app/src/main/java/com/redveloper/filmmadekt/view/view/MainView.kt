@@ -38,5 +38,7 @@ interface MainView {
             languange: String,
             page: String
         )
+
+        fun toDetailTvshow(context: Context, pos : Int)
     }
 }
