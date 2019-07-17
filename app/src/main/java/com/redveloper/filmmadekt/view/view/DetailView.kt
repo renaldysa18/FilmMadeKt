@@ -21,6 +21,9 @@ interface DetailView{
             context: Context,
             data: ResponMovie.ResultMovie
         )
+        fun insertFavorite(
+            context: Context
+        )
     }
 
     interface ViewTvshow{

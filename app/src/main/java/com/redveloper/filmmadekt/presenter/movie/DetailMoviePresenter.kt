@@ -3,9 +3,12 @@ package com.redveloper.filmmadekt.presenter.movie
 import android.content.Context
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.movie.ResponMovie
+import com.redveloper.filmmadekt.model.room.AppDatabase
 import com.redveloper.filmmadekt.view.view.DetailView
 
 class DetailMoviePresenter(val view: DetailView.ViewMovie) : DetailView.PresenterMovie{
+
+    private lateinit var dataGlobal : ResponMovie.ResultMovie
 
     override fun extractData(context: Context, data: ResponMovie.ResultMovie) {
         val image : String = context.resources.getString(R.string.BASE_IMAGE) + data.poster_path
@@ -17,6 +20,11 @@ class DetailMoviePresenter(val view: DetailView.ViewMovie) : DetailView.Presente
         view.showData(
             image, title, releaseDate, rating, popularity, description
         )
+        this.dataGlobal = data
     }
 
+    override fun insertFavorite(context: Context) {
+        val movie = AppDatabase.getInstance(context).movieDao().insertMovie(dataGlobal)
+
+    }
 }

@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 def config = rootProject.extensions.getByName("ext")
 
 android {
@@ -43,12 +45,13 @@ dependencies {
     implementation config.commonDependency.gson
     implementation config.commonDependency.glide
     implementation config.commonDependency.shimmer
+    implementation config.commonDependency.room
 
-    implementation 'com.android.support:support-v4:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation config.commonDependency.jUnitLib
+    annotationProcessor config.commonDependency.roomAnnotation
     annotationProcessor config.commonDependency.glideCompiler
     androidTestImplementation config.commonDependency.testRunner
     androidTestImplementation config.commonDependency.espresso
+    kapt config.commonDependency.roomKapt
 
 }
