@@ -10,6 +10,12 @@ interface MovieDao{
     @Insert
     fun insertMovie(data : ResponMovie.ResultMovie)
 
-    @Query("SELECT * FROM movieentities")
-    fun getAllMovie()
+    @Query("SELECT * FROM resultmovie")
+    fun getAllMovie() : ResponMovie.ResultMovie
+
+    @Query("SELECT * FROM resultmovie WHERE id == :id")
+    fun getSelectMovie(id : Long) : ResponMovie.ResultMovie
+
+    @Query("DELETE FROM resultmovie WHERE id == :id")
+    fun removeSpecific(id : Long)
 }

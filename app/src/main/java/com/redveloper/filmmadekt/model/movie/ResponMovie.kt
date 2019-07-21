@@ -1,5 +1,7 @@
 package com.redveloper.filmmadekt.model.movie
 
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
@@ -17,11 +19,13 @@ class ResponMovie {
     @SerializedName("results")
     var results: List<ResultMovie>? = null
 
+    @Entity(tableName = "resultmovie")
     @Parcelize
     data class ResultMovie(
         @SerializedName("vote_count")
         var vote_count: Long? = 0,
 
+        @PrimaryKey
         @SerializedName("id")
         var id: Long? = 0,
 
