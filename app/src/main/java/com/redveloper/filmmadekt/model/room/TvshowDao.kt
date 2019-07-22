@@ -11,7 +11,7 @@ interface TvshowDao{
     fun insertTvshow(data : ResponTvshow.ResultTvShow)
 
     @Query("SELECT * FROM tvshowdb")
-    fun getAllTvshow() : ResponTvshow.ResultTvShow
+    fun getAllTvshow() : List<ResponTvshow.ResultTvShow>
 
     @Query("SELECT * FROM tvshowdb WHERE id == :id")
     fun getSelectTvshow(id : Long) : ResponTvshow.ResultTvShow

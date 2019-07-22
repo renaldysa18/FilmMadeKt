@@ -47,4 +47,9 @@ interface MainView {
 
         fun toDetailTvshow(context: Context, pos : Int)
     }
+
+    interface TvshowFavortePresenter{
+        fun getFavoriteTvshow(context: Context)
+        fun toDetailTvshow(context: Context, pos : Int)
+    }
 }
