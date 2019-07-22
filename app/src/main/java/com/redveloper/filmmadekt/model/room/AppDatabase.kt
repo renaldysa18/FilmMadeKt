@@ -5,10 +5,13 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.redveloper.filmmadekt.model.movie.ResponMovie
+import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
 
-@Database(entities = [(ResponMovie.ResultMovie::class)], version = 5, exportSchema = false)
+@Database(entities = [(ResponMovie.ResultMovie::class),(ResponTvshow.ResultTvShow::class)], version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
+
+    abstract fun tvshowDao() : TvshowDao
 
     companion object {
         private var instance: AppDatabase? = null
