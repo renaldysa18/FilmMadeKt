@@ -11,7 +11,7 @@ interface MovieDao{
     fun insertMovie(data : ResponMovie.ResultMovie)
 
     @Query("SELECT * FROM resultmovie")
-    fun getAllMovie() : ResponMovie.ResultMovie
+    fun getAllMovie() : List<ResponMovie.ResultMovie>
 
     @Query("SELECT * FROM resultmovie WHERE id == :id")
     fun getSelectMovie(id : Long) : ResponMovie.ResultMovie

@@ -24,6 +24,12 @@ interface MainView {
         fun toDetailMovie(context: Context, pos : Int)
     }
 
+
+    interface MovieFavoritePresenter{
+        fun getFavoriteMovie(context: Context)
+        fun toDetailMovie(context: Context, pos : Int)
+    }
+
     interface TvshowView {
         fun makeToast(msg: String)
         fun showShimmer()
