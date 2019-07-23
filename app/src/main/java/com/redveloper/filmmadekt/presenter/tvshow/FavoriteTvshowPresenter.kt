@@ -2,12 +2,13 @@ package com.redveloper.filmmadekt.presenter.tvshow
 
 import android.content.Context
 import android.content.Intent
+import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.room.AppDatabase
 import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
 import com.redveloper.filmmadekt.view.ui.activity.tvshow.TvshowDetail
 import com.redveloper.filmmadekt.view.view.MainView
 
-class FavoriteTvshowPresenter(val view: MainView.TvshowView) : MainView.TvshowFavortePresenter {
+class FavoriteTvshowPresenter(val view: MainView.TvshowView, val context: Context?) : MainView.TvshowFavortePresenter {
     private var result: ArrayList<ResponTvshow.ResultTvShow>? = null
 
     override fun getFavoriteTvshow(context: Context) {
@@ -20,7 +21,7 @@ class FavoriteTvshowPresenter(val view: MainView.TvshowView) : MainView.TvshowFa
             this.result = data
         } else {
             view.hideShimmer()
-            view.makeToast("Data Kosong")
+            view.makeToast(context.resources.getString(R.string.empety_tvshow))
         }
     }
 

@@ -34,7 +34,7 @@ class FavoriteMovieFragment : Fragment(), MainView.MovieView, MovieAdapter.OnIte
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.recyclerview_favorite_movie.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-        presenter =  FavoriteMoviePresenter(this)
+        presenter =  FavoriteMoviePresenter(this, context)
         callMovie()
     }
 

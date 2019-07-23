@@ -2,12 +2,13 @@ package com.redveloper.filmmadekt.presenter.movie
 
 import android.content.Context
 import android.content.Intent
+import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.room.AppDatabase
 import com.redveloper.filmmadekt.view.ui.activity.movie.MovieDetail
 import com.redveloper.filmmadekt.view.view.MainView
 
-class FavoriteMoviePresenter(val view: MainView.MovieView) : MainView.MovieFavoritePresenter {
+class FavoriteMoviePresenter(val view: MainView.MovieView, val context: Context?) : MainView.MovieFavoritePresenter {
 
     private var result : ArrayList<ResponMovie.ResultMovie>? = null
 
@@ -20,7 +21,7 @@ class FavoriteMoviePresenter(val view: MainView.MovieView) : MainView.MovieFavor
             this.result = data
         } else {
             view.hideShimmer()
-            view.makeToast("Data Kosong")
+            view.makeToast(context.resources.getString(R.string.empety_movie))
         }
     }
 

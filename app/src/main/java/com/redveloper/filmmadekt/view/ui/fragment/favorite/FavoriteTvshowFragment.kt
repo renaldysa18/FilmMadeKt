@@ -35,7 +35,7 @@ class FavoriteTvshowFragment : Fragment(), MainView.TvshowView, TvshowAdapter.On
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.recyclerview_favorite_tvshow.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-        presenter = FavoriteTvshowPresenter(this)
+        presenter = FavoriteTvshowPresenter(this, context)
         callTvshow()
     }
 
