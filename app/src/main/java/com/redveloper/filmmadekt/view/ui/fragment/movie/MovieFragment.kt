@@ -3,12 +3,14 @@ package com.redveloper.filmmadekt.view.ui.fragment.movie
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.Toast
+import com.azoft.carousellayoutmanager.CarouselLayoutManager
+import com.azoft.carousellayoutmanager.CarouselSmoothScroller
+import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener
+import com.azoft.carousellayoutmanager.CenterScrollListener
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.presenter.movie.MoviePresenter
@@ -32,7 +34,6 @@ class MovieFragment : Fragment(), MainView.MovieView, MovieAdapter.OnItemClickLi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.recyclerview_movie.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         if (savedInstanceState != null) {
             showData(savedInstanceState.getParcelableArrayList("DataMovie"))
         } else {
@@ -55,8 +56,13 @@ class MovieFragment : Fragment(), MainView.MovieView, MovieAdapter.OnItemClickLi
     }
 
     override fun showData(data: ArrayList<ResponMovie.ResultMovie>) {
+        val layoutManager: CarouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true)
+        layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
+        view?.recyclerview_movie?.layoutManager = layoutManager
+        view?.recyclerview_movie?.setHasFixedSize(true)
         adapter = MovieAdapter(data)
         view?.recyclerview_movie?.adapter = adapter
+        view?.recyclerview_movie?.addOnScrollListener(CenterScrollListener())
 
         adapter.setOnItemClickListener(this)
 
@@ -73,11 +79,11 @@ class MovieFragment : Fragment(), MainView.MovieView, MovieAdapter.OnItemClickLi
     }
 
     override fun showShimemr() {
-        view?.shimmerList?.startShimmerAnimation()
+//        view?.shimmerList?.startShimmerAnimation()
     }
 
     override fun hideShimmer() {
-        view?.shimmerList?.stopShimmerAnimation()
-        view?.shimmerList?.visibility = View.GONE
+//        view?.shimmerList?.stopShimmerAnimation()
+//        view?.shimmerList?.visibility = View.GONE
     }
 }

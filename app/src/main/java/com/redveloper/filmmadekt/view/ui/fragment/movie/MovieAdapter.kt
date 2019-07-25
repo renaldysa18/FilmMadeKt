@@ -39,12 +39,16 @@ class MovieAdapter(val items : List<ResponMovie.ResultMovie>) : RecyclerView.Ada
             data: ResponMovie.ResultMovie,
             itemClickListener: OnItemClickListener
         ) {
-            itemView.textview_title_list.setText(data.title)
-            itemView.textview_description_list.setText(data.overview)
+            itemView.textview_title_listmovie.setText(data.title)
+//            itemView.textview_description_list.setText(data.overview)
+
+            itemView.textview_vote_listmovie.setText(data.vote_count.toString())
+            itemView.textview_popularity_listmovie.setText(data.popularity.toString())
+            itemView.textview_rating_listmovie.setText(data.vote_average.toString())
 
             Glide.with(itemView.context)
                 .load(itemView.context.resources.getString(R.string.BASE_IMAGE) + data.poster_path)
-                .into(itemView.imageview_list)
+                .into(itemView.imageview_listmovie)
 
             itemView.setOnClickListener{
                 if(itemClickListener != null){

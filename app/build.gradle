@@ -46,6 +46,8 @@ dependencies {
     implementation config.commonDependency.glide
     implementation config.commonDependency.shimmer
     implementation config.commonDependency.room
+    implementation config.commonDependency.carouselRv
+    implementation config.commonDependency.circularImage
 
     testImplementation config.commonDependency.jUnitLib
     annotationProcessor config.commonDependency.roomAnnotation

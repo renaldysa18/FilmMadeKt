@@ -37,11 +37,11 @@ class TvshowAdapter(val items : ArrayList<ResponTvshow.ResultTvShow>) : Recycler
             data: ResponTvshow.ResultTvShow,
             itemClickListener: OnItemClickListener
         ) {
-            itemView.textview_title_list.setText(data.name)
-            itemView.textview_description_list.setText(data.overview)
-            Glide.with(itemView.context)
-                .load(itemView.context.resources.getString(R.string.BASE_IMAGE) + data.poster_path)
-                .into(itemView.imageview_list)
+//            itemView.textview_title_list.setText(data.name)
+//            itemView.textview_description_list.setText(data.overview)
+//            Glide.with(itemView.context)
+//                .load(itemView.context.resources.getString(R.string.BASE_IMAGE) + data.poster_path)
+//                .into(itemView.imageview_list)
 
             itemView.setOnClickListener{
                 if(itemClickListener != null){

@@ -24,5 +24,6 @@
     <string name="change_languange">Change Languange</string>
     <string name="empety_movie">Favorite Movie Empety</string>
     <string name="empety_tvshow">Favorite Tv Show Empety</string>
+    <string name="detail">Detail</string>
 
 </resources>

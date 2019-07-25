@@ -43,6 +43,8 @@ ext{
     rxJavaReactiveVersion = '2.2.9'
     rxAndroid = '2.0.2'
     roomVersion = '1.1.1'
+    carouselRvVersion = '1.2.4'
+    circularImageVersion = '1.2.0'
     commonDependency = [
             kotlin : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
             supportLib : "com.android.support:appcompat-v7:${supportLibVersion}",
@@ -65,5 +67,7 @@ ext{
             room : "android.arch.persistence.room:runtime:${roomVersion}",
             roomAnnotation : "android.arch.persistence.room:compiler:${roomVersion}",
             roomKapt : "android.arch.persistence.room:compiler:${roomVersion}",
+            carouselRv : "com.azoft.carousellayoutmanager:carousel:${carouselRvVersion}",
+            circularImage : "com.jackandphantom.android:circularimageview:${circularImageVersion}",
     ]
 }
