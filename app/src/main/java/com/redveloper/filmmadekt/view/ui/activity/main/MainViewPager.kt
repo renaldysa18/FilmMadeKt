@@ -30,9 +30,9 @@ class MainViewPager(fm : FragmentManager, val context: Context) : FragmentPagerA
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
-            0 -> context.resources.getString(R.string.title_movie)
-            1 -> context.resources.getString(R.string.title_tvshow)
-            else -> context.resources.getString(R.string.title_favorite)
+            0 -> context.resources.getString(R.string.title_movie).capitalize()
+            1 -> context.resources.getString(R.string.title_tvshow).capitalize()
+            else -> context.resources.getString(R.string.title_favorite).capitalize()
         }
     }
 }
