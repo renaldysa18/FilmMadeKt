@@ -1,4 +1,4 @@
-package com.redveloper.filmmadekt.view.ui.activity
+package com.redveloper.filmmadekt.view.ui.activity.main
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -17,46 +17,20 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_movie -> {
-                moveFragment(MovieFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_tvshow -> {
-                moveFragment(TvshowFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_favorite -> {
-                moveFragment(FavoriteFragment())
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-        //default
-        moveFragment(MovieFragment())
+        val adapter = MainViewPager(supportFragmentManager, applicationContext)
+        customPager_main.adapter = adapter
+        customPager_main.setSwipe(false)
+        tablayout_main.setupWithViewPager(customPager_main)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
         if(newConfig?.orientation == Configuration.ORIENTATION_LANDSCAPE){
-
-
         } else if(newConfig?.orientation == Configuration.ORIENTATION_PORTRAIT){
-
         }
-    }
-
-    fun moveFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frame, fragment)
-            .commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
