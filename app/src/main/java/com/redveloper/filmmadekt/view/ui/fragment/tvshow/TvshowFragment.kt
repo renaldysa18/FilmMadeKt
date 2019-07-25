@@ -16,9 +16,10 @@ import com.redveloper.filmmadekt.presenter.tvshow.TvshowPresenter
 import com.redveloper.filmmadekt.view.view.MainView
 import kotlinx.android.synthetic.main.fragment_tvshow.view.*
 
-class TvshowFragment : Fragment() ,  MainView.TvshowView, TvshowAdapter.OnItemClickListener {
+class TvshowFragment : Fragment(), MainView.TvshowView, TvshowAdapter.OnItemClickListener {
     private lateinit var adapter: TvshowAdapter
     private lateinit var presenter: TvshowPresenter
+    private lateinit var dataGlobal: ArrayList<ResponTvshow.ResultTvShow>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,8 +31,20 @@ class TvshowFragment : Fragment() ,  MainView.TvshowView, TvshowAdapter.OnItemCl
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.recyclerview_tvshow.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-        presenter = TvshowPresenter(this)
-        callTvshow()
+        if (savedInstanceState != null) {
+            showData(savedInstanceState.getParcelableArrayList("DataTvshow"))
+        } else {
+            presenter = TvshowPresenter(this)
+            callTvshow()
+        }
+    }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (outState != null) {
+            outState.putParcelableArrayList("DataTvshow", dataGlobal)
+        }
     }
 
     override fun callTvshow() {
@@ -58,6 +71,9 @@ class TvshowFragment : Fragment() ,  MainView.TvshowView, TvshowAdapter.OnItemCl
         view?.recyclerview_tvshow?.adapter = adapter
 
         adapter.setOnClickListener(this)
+
+        //init data
+        this.dataGlobal = results
     }
 
     override fun OnClickItem(pos: Int) {

@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.ui.activity
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.provider.Settings
 import android.support.design.widget.BottomNavigationView
@@ -40,6 +41,16 @@ class MainActivity : AppCompatActivity() {
         nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         //default
         moveFragment(MovieFragment())
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+        if(newConfig?.orientation == Configuration.ORIENTATION_LANDSCAPE){
+
+
+        } else if(newConfig?.orientation == Configuration.ORIENTATION_PORTRAIT){
+
+        }
     }
 
     fun moveFragment(fragment: Fragment) {
