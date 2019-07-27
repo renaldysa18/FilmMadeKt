@@ -49,6 +49,8 @@ dependencies {
     implementation config.commonDependency.carouselRv
     implementation config.commonDependency.circularImage
 
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation config.commonDependency.jUnitLib
     annotationProcessor config.commonDependency.roomAnnotation
     annotationProcessor config.commonDependency.glideCompiler
