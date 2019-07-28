@@ -12,18 +12,18 @@ class FavoriteMoviePresenter(val view: MainView.MovieView, val context: Context?
 
     private var result : ArrayList<ResponMovie.ResultMovie>? = null
 
-    override fun getFavoriteMovie(context: Context) {
-        view.showShimemr()
-        val data = AppDatabase.getInstance(context).movieDao().getAllMovie()
-        if ( data != null  && data.isNotEmpty() ) {
-            view.showData(data as ArrayList<ResponMovie.ResultMovie>)
-            //init data
-            this.result = data
-        } else {
-            view.hideShimmer()
-            view.makeToast(context.resources.getString(R.string.empety_movie))
-        }
-    }
+//    override fun getFavoriteMovie(context: Context) {
+//        view.showShimemr()
+//        val data = AppDatabase.getInstance(context).movieDao().getAllMovie()
+//        if ( data != null  && data.isNotEmpty() ) {
+//            view.showData(data as ArrayList<ResponMovie.ResultMovie>)
+//            //init data
+//            this.result = data
+//        } else {
+//            view.hideShimmer()
+//            view.makeToast(context.resources.getString(R.string.empety_movie))
+//        }
+//    }
 
     override fun toDetailMovie(context: Context, pos: Int) {
         val set : Intent = Intent(context, MovieDetail::class.java)

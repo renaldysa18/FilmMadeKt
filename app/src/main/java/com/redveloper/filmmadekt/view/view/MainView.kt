@@ -7,11 +7,7 @@ import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
 interface MainView {
 
     interface MovieView {
-        fun makeToast(msg: String)
-        fun showData(data: ArrayList<ResponMovie.ResultMovie>)
-        fun callMovie()
-        fun showShimemr()
-        fun hideShimmer()
+
     }
 
     interface MoviePresenter {
@@ -26,7 +22,7 @@ interface MainView {
 
 
     interface MovieFavoritePresenter{
-        fun getFavoriteMovie(context: Context)
+//        fun getFavoriteMovie(context: Context)
         fun toDetailMovie(context: Context, pos : Int)
     }
 

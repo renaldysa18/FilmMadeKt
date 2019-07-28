@@ -6,23 +6,13 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.azoft.carousellayoutmanager.CarouselLayoutManager
-import com.azoft.carousellayoutmanager.CarouselSmoothScroller
-import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener
-import com.azoft.carousellayoutmanager.CenterScrollListener
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.movie.ResponMovie
-import com.redveloper.filmmadekt.presenter.movie.MoviePresenter
-import com.redveloper.filmmadekt.view.view.MainView
+import kotlinx.android.synthetic.main.fragment_movie.*
 import kotlinx.android.synthetic.main.fragment_movie.view.*
+import kotlinx.android.synthetic.main.fragment_movie.view.customPager_movie
 
-class MovieFragment : Fragment(), MainView.MovieView, MovieAdapter.OnItemClickListener {
+class MovieFragment : Fragment(){
 
-
-    private lateinit var adapter: MovieAdapter
-    private lateinit var presenter: MoviePresenter
-    private lateinit var dataGlobal: ArrayList<ResponMovie.ResultMovie>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,59 +21,12 @@ class MovieFragment : Fragment(), MainView.MovieView, MovieAdapter.OnItemClickLi
         return inflater.inflate(R.layout.fragment_movie, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (savedInstanceState != null) {
-            showData(savedInstanceState.getParcelableArrayList("DataMovie"))
-        } else {
-            presenter = MoviePresenter(this)
-            callMovie()
-        }
+        val adapter = context?.let { MovieViewPager(childFragmentManager, it) }
+        view.customPager_movie.adapter = adapter
+        view.customPager_movie.setSwipe(false)
+        view.tablayout_movie.setupWithViewPager(customPager_movie)
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        if (outState != null) {
-            outState.putParcelableArrayList("DataMovie", dataGlobal)
-        }
-    }
-
-    override fun callMovie() {
-        presenter.getMoview(
-            resources.getString(R.string.API_KEY), "2019-05-25", "2109-06-25"
-        )
-    }
-
-    override fun showData(data: ArrayList<ResponMovie.ResultMovie>) {
-        val layoutManager: CarouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true)
-        layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
-        view?.recyclerview_movie?.layoutManager = layoutManager
-        view?.recyclerview_movie?.setHasFixedSize(true)
-        adapter = MovieAdapter(data)
-        view?.recyclerview_movie?.adapter = adapter
-        view?.recyclerview_movie?.addOnScrollListener(CenterScrollListener())
-
-        adapter.setOnItemClickListener(this)
-
-        //init data
-        this.dataGlobal = data
-    }
-
-    override fun OnItemClick(pos: Int) {
-        context?.let { presenter.toDetailMovie(it, pos) }
-    }
-
-    override fun makeToast(msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun showShimemr() {
-//        view?.shimmerList?.startShimmerAnimation()
-    }
-
-    override fun hideShimmer() {
-//        view?.shimmerList?.stopShimmerAnimation()
-//        view?.shimmerList?.visibility = View.GONE
-    }
 }

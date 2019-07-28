@@ -2,6 +2,8 @@ package com.redveloper.filmmadekt.model.service
 
 import com.google.gson.GsonBuilder
 import com.redveloper.filmmadekt.model.movie.ResponMovie
+import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
+import com.redveloper.filmmadekt.model.movie.ResponPopularMovie
 import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
@@ -13,6 +15,31 @@ import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 interface BaseApi {
+
+    //movie
+    //now playing
+    @GET("movie/now_playing?")
+    fun getNowPlayingMovie(
+        @Query("api_key") api_key: String,
+        @Query("language") languange: String,
+        @Query("page") page : Int
+    ): Observable<ResponNowPlayingMovie>
+
+    //popular
+    @GET("movie/popular?")
+    fun getPopularMovie(
+        @Query("api_key") api_key: String,
+        @Query("languange") languange: String,
+        @Query("page") page: Int
+    ) : Observable<ResponPopularMovie>
+
+    //comingsoon
+    @GET("movie/upcoming?")
+    fun getUpComingMovie(
+        @Query("api_key") api_key: String,
+        @Query("languange") languange: String,
+        @Query("page") page: Int
+    ) : Observable<ResponNowPlayingMovie>
 
     @GET("discover/movie?")
     fun getDiscoverMoview(
@@ -28,6 +55,7 @@ interface BaseApi {
         @Query("languange") languange : String,
         @Query("page") page : String
     ) : Observable<ResponTvshow>
+
 
     companion object {
         var URL: String = "https://api.themoviedb.org/3/"

@@ -1,4 +1,4 @@
-package com.redveloper.filmmadekt.view.ui.activity.main
+package com.redveloper.filmmadekt.view.ui.activity
 
 import android.content.Context
 import android.support.v4.view.ViewPager
