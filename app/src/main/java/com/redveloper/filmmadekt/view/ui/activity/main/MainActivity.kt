@@ -8,7 +8,6 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import com.redveloper.filmmadekt.R
@@ -16,12 +15,12 @@ import com.redveloper.filmmadekt.view.ui.fragment.favorite.FavoriteFragment
 import com.redveloper.filmmadekt.view.ui.fragment.movie.MovieFragment
 import com.redveloper.filmmadekt.view.ui.fragment.tvshow.TvshowFragment
 
-class Main2Activity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         val title : TextView = toolbar.findViewById(R.id.toolbar_title)
         setSupportActionBar(toolbar)
