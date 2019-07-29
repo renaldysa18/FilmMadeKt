@@ -28,6 +28,8 @@
             android:contentDescription="@string/image"
             android:scaleType="fitXY"
             app:add_shadow="true"
+            app:shadow_color="@android:color/black"
+            app:shadow_radius="20"
             app:rounded_radius="50" />
 
         <TextView
