@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
 import com.redveloper.filmmadekt.model.movie.ResponPopularMovie
+import com.redveloper.filmmadekt.model.movie.ResponUpComingMovie
 import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
@@ -39,7 +40,7 @@ interface BaseApi {
         @Query("api_key") api_key: String,
         @Query("languange") languange: String,
         @Query("page") page: Int
-    ) : Observable<ResponNowPlayingMovie>
+    ) : Observable<ResponUpComingMovie>
 
     @GET("discover/movie?")
     fun getDiscoverMoview(

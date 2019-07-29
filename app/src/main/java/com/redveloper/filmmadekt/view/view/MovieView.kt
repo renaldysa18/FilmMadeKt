@@ -2,6 +2,7 @@ package com.redveloper.filmmadekt.view.view
 
 import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
 import com.redveloper.filmmadekt.model.movie.ResponPopularMovie
+import com.redveloper.filmmadekt.model.movie.ResponUpComingMovie
 
 interface MovieView{
 
@@ -21,7 +22,7 @@ interface MovieView{
 
     interface UpComing{
         fun CallUpComingMovie()
-        fun showData(data : List<ResponNowPlayingMovie.Result>?)
+        fun showData(data: List<ResponUpComingMovie.Result>?)
         fun showMessage(msg : String)
     }
 

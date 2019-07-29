@@ -12,7 +12,7 @@ import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.azoft.carousellayoutmanager.CenterScrollListener
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
+import com.redveloper.filmmadekt.model.movie.ResponUpComingMovie
 import com.redveloper.filmmadekt.presenter.movie.UpComingMoviePresenter
 import com.redveloper.filmmadekt.view.view.MovieView
 import kotlinx.android.synthetic.main.fragment_movie_coming_soon.view.*
@@ -32,6 +32,7 @@ class MovieComingSoonFragment : Fragment(), MovieView.UpComing {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = UpComingMoviePresenter(this)
+        CallUpComingMovie()
     }
 
     override fun CallUpComingMovie() {
@@ -44,7 +45,7 @@ class MovieComingSoonFragment : Fragment(), MovieView.UpComing {
         }
     }
 
-    override fun showData(data: List<ResponNowPlayingMovie.Result>?) {
+    override fun showData(data: List<ResponUpComingMovie.Result>?) {
         val layoutManager: CarouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true)
         layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
         view?.recyclerview_movie_comingsoon?.layoutManager = layoutManager
