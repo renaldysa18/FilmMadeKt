@@ -17,12 +17,13 @@ import com.redveloper.filmmadekt.view.ui.fragment.tvshow.TvshowFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private lateinit var title : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        val title : TextView = toolbar.findViewById(R.id.toolbar_title)
+        val toolbar: Toolbar = findViewById(R.id.toolbar_main)
+        title = toolbar.findViewById(R.id.toolbar_title)
         setSupportActionBar(toolbar)
         title.setText(toolbar.title)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -50,9 +51,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_movie -> moveFragment(MovieFragment())
-            R.id.nav_tvshow -> moveFragment(TvshowFragment())
-            R.id.nav_favorite -> moveFragment(FavoriteFragment())
+            R.id.nav_movie -> {
+                moveFragment(MovieFragment())
+                title.setText(applicationContext.resources.getString(R.string.title_movie))
+            }
+            R.id.nav_tvshow -> {
+                moveFragment(TvshowFragment())
+                title.setText(applicationContext.resources.getString(R.string.title_tvshow))
+            }
+            R.id.nav_favorite -> {
+                moveFragment(FavoriteFragment())
+                title.setText(applicationContext.resources.getString(R.string.title_favorite))
+            }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)

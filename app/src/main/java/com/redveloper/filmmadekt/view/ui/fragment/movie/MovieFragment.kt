@@ -9,9 +9,8 @@ import android.view.ViewGroup
 import com.redveloper.filmmadekt.R
 import kotlinx.android.synthetic.main.fragment_movie.*
 import kotlinx.android.synthetic.main.fragment_movie.view.*
-import kotlinx.android.synthetic.main.fragment_movie.view.customPager_movie
 
-class MovieFragment : Fragment(){
+class MovieFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +26,7 @@ class MovieFragment : Fragment(){
         view.customPager_movie.adapter = adapter
         view.customPager_movie.setSwipe(false)
         view.tablayout_movie.setupWithViewPager(customPager_movie)
+
     }
 
 }
