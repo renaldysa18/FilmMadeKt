@@ -1,11 +1,11 @@
 package com.redveloper.filmmadekt.model.service
 
 import com.google.gson.GsonBuilder
-import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
 import com.redveloper.filmmadekt.model.movie.ResponPopularMovie
 import com.redveloper.filmmadekt.model.movie.ResponUpComingMovie
-import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
+import com.redveloper.filmmadekt.model.tvshow.ResponTopRatedTvShow
+import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -42,21 +42,23 @@ interface BaseApi {
         @Query("page") page: Int
     ) : Observable<ResponUpComingMovie>
 
-    @GET("discover/movie?")
-    fun getDiscoverMoview(
-        @Query("api_key") api_key: String,
-        @Query("primary_release_date.gte") date_gte: String,
-        @Query("primary_release_date.lte") date_lte: String
-    ): Observable<ResponMovie>
+    //tv show
 
-
+    //popular
     @GET("tv/popular?")
-    fun getTvShow(
+    fun getTvShowPopular(
         @Query("api_key") api_key: String,
         @Query("languange") languange : String,
-        @Query("page") page : String
-    ) : Observable<ResponTvshow>
+        @Query("page") page : Int
+    ) : Observable<ResponPopularTvshow>
 
+    //top rated
+    @GET("tv/top_rated?")
+    fun getTvShowTopRated(
+        @Query("api_key") api_key: String,
+        @Query("language") languange: String,
+        @Query("page") page : Int
+    ) : Observable<ResponTopRatedTvShow>
 
     companion object {
         var URL: String = "https://api.themoviedb.org/3/"

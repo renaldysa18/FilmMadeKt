@@ -6,7 +6,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-class ResponTvshow {
+class ResponPopularTvshow {
     @SerializedName("page")
     var page: Int? = 0
     @SerializedName("total_results")

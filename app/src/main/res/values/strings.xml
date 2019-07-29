@@ -42,5 +42,6 @@
     <string name="title_now_showing">Now Showing</string>
     <string name="title_coming_soon">Coming Soon</string>
     <string name="title_popular">Popular</string>
+    <string name="title_top_rated">Top Rated</string>
 
 </resources>

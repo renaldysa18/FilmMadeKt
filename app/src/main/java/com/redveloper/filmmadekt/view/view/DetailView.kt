@@ -2,7 +2,7 @@ package com.redveloper.filmmadekt.view.view
 
 import android.content.Context
 import com.redveloper.filmmadekt.model.movie.ResponMovie
-import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
+import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
 
 interface DetailView{
     interface ViewMovie{
@@ -54,7 +54,7 @@ interface DetailView{
     interface PresenterTvshow{
         fun extractData(
             context: Context,
-            data : ResponTvshow.ResultTvShow
+            data : ResponPopularTvshow.ResultTvShow
         )
         fun insertFavorite(
             context: Context
