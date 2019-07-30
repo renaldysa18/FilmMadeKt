@@ -13,6 +13,7 @@ import android.widget.TextView
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.view.ui.fragment.favorite.FavoriteFragment
 import com.redveloper.filmmadekt.view.ui.fragment.movie.MovieFragment
+import com.redveloper.filmmadekt.view.ui.fragment.setting.SettingFragment
 import com.redveloper.filmmadekt.view.ui.fragment.tvshow.TvshowFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -62,6 +63,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_favorite -> {
                 moveFragment(FavoriteFragment())
                 title.setText(applicationContext.resources.getString(R.string.title_favorite))
+            }
+            R.id.nav_tools -> {
+                moveFragment(SettingFragment())
+                title.setText(applicationContext.resources.getString(R.string.title_setting))
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)

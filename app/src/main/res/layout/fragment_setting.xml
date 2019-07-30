@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".view.ui.fragment.setting.SettingFragment">
+
+    <TextView
+        android:id="@+id/textview_setting_bahasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/bahasa"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_bahasaIndo_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/bahasa_indonesia"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_setting_bahasa" />
+
+    <com.kyleduo.switchbutton.SwitchButton
+        android:id="@+id/switchbutton_bahasa_indo"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:kswThumbColor="@color/colorGreen"
+        app:kswBackColor="@android:color/white"
+        app:kswThumbMargin="6dp"
+        app:layout_constraintTop_toBottomOf="@id/textview_setting_bahasa"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textview_bahasaIng_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/bahasa_inggris"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_bahasaIndo_setting" />
+
+    <com.kyleduo.switchbutton.SwitchButton
+        android:id="@+id/switchbutton_bahasa_ing"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        app:kswThumbColor="@color/colorGreen"
+        app:kswBackColor="@android:color/white"
+        app:kswThumbMargin="6dp"
+        app:layout_constraintTop_toBottomOf="@id/switchbutton_bahasa_indo"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</android.support.constraint.ConstraintLayout>

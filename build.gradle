@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
         
     }
     dependencies {
@@ -45,6 +46,7 @@ ext{
     roomVersion = '1.1.1'
     carouselRvVersion = '1.2.4'
     circularImageVersion = '1.2.0'
+    switchVersion = '2.0.0'
     commonDependency = [
             kotlin : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
             supportLib : "com.android.support:appcompat-v7:${supportLibVersion}",
@@ -69,5 +71,6 @@ ext{
             roomKapt : "android.arch.persistence.room:compiler:${roomVersion}",
             carouselRv : "com.azoft.carousellayoutmanager:carousel:${carouselRvVersion}",
             circularImage : "com.jackandphantom.android:circularimageview:${circularImageVersion}",
+            switchButton : "com.kyleduo.switchbutton:library:${switchVersion}",
     ]
 }
