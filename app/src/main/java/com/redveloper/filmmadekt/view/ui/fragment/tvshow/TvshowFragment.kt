@@ -3,16 +3,11 @@ package com.redveloper.filmmadekt.view.ui.fragment.tvshow
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.Toast
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
-import com.redveloper.filmmadekt.view.view.MainView
 import kotlinx.android.synthetic.main.fragment_tvshow.*
 import kotlinx.android.synthetic.main.fragment_tvshow.view.*
 import kotlinx.android.synthetic.main.fragment_tvshow.view.customPager_tvshow

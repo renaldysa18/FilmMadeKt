@@ -8,17 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.movie.ResponMovie
-import com.redveloper.filmmadekt.presenter.movie.FavoriteMoviePresenter
-import com.redveloper.filmmadekt.view.view.MainView
 import kotlinx.android.synthetic.main.fragment_favorite_movie.view.*
 
-class FavoriteMovieFragment : Fragment(), MainView.MovieView {
+class FavoriteMovieFragment : Fragment(){
 
-    private lateinit var presenter : FavoriteMoviePresenter
 //    private lateinit var adapter : MovieAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +27,6 @@ class FavoriteMovieFragment : Fragment(), MainView.MovieView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.recyclerview_favorite_movie.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-        presenter =  FavoriteMoviePresenter(this, context)
 //        callMovie()
     }
 

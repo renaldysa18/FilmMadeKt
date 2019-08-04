@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FilmMadeKt</string>
+    <string name="bahasa">Pengaturan Bahasa</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="change_languange">Ganti Bahasa</string>
+    <string name="description">Keterangan</string>
+    <string name="detail">Detail</string>
+    <string name="empety_movie">FavoritFilm Kosong</string>
+    <string name="empety_tvshow">Favorit Acara TV Kosong</string>
+    <string name="vote">Memilih</string>
+    <string name="toolbar_title">Judul</string>
+    <string name="title_top_rated">Teratas</string>
+    <string name="title_tvshow">Acara TV</string>
+    <string name="title_setting">Pengaturan</string>
+    <string name="title_popular">Populer</string>
+    <string name="title_now_showing">Sekarang</string>
+    <string name="title_notifications">Pemberitahuan</string>
+    <string name="title_movie">Film</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_favorite">Favorit</string>
+    <string name="title_dashboard">Beranda</string>
+    <string name="title_coming_soon">Akan Datang</string>
+    <string name="title_activity_tvshow_detail">Detail Acara Tv</string>
+    <string name="title">Judul</string>
+    <string name="release_date">Tanggal Tayang</string>
+    <string name="rating">Peringkat</string>
+    <string name="popularity">Popularitas</string>
+    <string name="image">Gambar</string>
+    <string name="menu_gallery">Galeri</string>
+    <string name="menu_home">Beranda</string>
+    <string name="menu_send">Kirim</string>
+    <string name="menu_share">Bagikan</string>
+    <string name="menu_slideshow">Slide</string>
+    <string name="menu_tools">Pengaturan</string>
+</resources>
