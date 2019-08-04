@@ -12,14 +12,15 @@ import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.azoft.carousellayoutmanager.CenterScrollListener
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.movie.ResponUpComingMovie
+import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.presenter.movie.UpComingMoviePresenter
+import com.redveloper.filmmadekt.view.ui.fragment.movie.AdapterMovie
 import com.redveloper.filmmadekt.view.view.MovieView
 import kotlinx.android.synthetic.main.fragment_movie_coming_soon.view.*
 
 class MovieComingSoonFragment : Fragment(), MovieView.UpComing {
     private lateinit var presenter : UpComingMoviePresenter
-    private lateinit var adapter : AdapterUpComingMovie
+    private lateinit var adapter : AdapterMovie
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,13 +46,13 @@ class MovieComingSoonFragment : Fragment(), MovieView.UpComing {
         }
     }
 
-    override fun showData(data: List<ResponUpComingMovie.Result>?) {
+    override fun showData(data: List<ResponMovie.Result>?) {
         val layoutManager: CarouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true)
         layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
         view?.recyclerview_movie_comingsoon?.layoutManager = layoutManager
         view?.recyclerview_movie_comingsoon?.setHasFixedSize(true)
 
-        adapter = AdapterUpComingMovie(data)
+        adapter = AdapterMovie(data)
 
         view?.recyclerview_movie_comingsoon?.adapter = adapter
         view?.recyclerview_movie_comingsoon?.addOnScrollListener(CenterScrollListener())

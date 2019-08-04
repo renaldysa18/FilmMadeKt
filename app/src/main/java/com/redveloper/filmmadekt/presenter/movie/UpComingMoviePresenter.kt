@@ -1,7 +1,7 @@
 package com.redveloper.filmmadekt.presenter.movie
 
 import android.util.Log
-import com.redveloper.filmmadekt.model.movie.ResponUpComingMovie
+import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.service.BaseApi
 import com.redveloper.filmmadekt.view.view.MovieView
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -22,12 +22,12 @@ class UpComingMoviePresenter(val view : MovieView.UpComing) : MovieView.UpComing
             ).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribeWith(
-                    object  : DisposableObserver<ResponUpComingMovie>(){
+                    object  : DisposableObserver<ResponMovie>(){
                         override fun onComplete() {
                             Log.i("GetUpComing", "Complete")
                         }
 
-                        override fun onNext(t: ResponUpComingMovie) {
+                        override fun onNext(t: ResponMovie) {
                             if(t.results != null){
                                 view.showData(t.results)
                             }

@@ -8,14 +8,14 @@ import com.redveloper.filmmadekt.model.movie.ResponMovie
 @Dao
 interface MovieDao{
     @Insert
-    fun insertMovie(data : ResponMovie.ResultMovie)
+    fun insertMovie(data : ResponMovie.Result)
 
-    @Query("SELECT * FROM resultmovie")
-    fun getAllMovie() : List<ResponMovie.ResultMovie>
+    @Query("SELECT * FROM moviedb")
+    fun getAllMovie() : List<ResponMovie.Result>
 
-    @Query("SELECT * FROM resultmovie WHERE id == :id")
-    fun getSelectMovie(id : Long) : ResponMovie.ResultMovie
+    @Query("SELECT * FROM moviedb WHERE id == :id")
+    fun getSelectMovie(id : Long) : ResponMovie.Result
 
-    @Query("DELETE FROM resultmovie WHERE id == :id")
+    @Query("DELETE FROM moviedb WHERE id == :id")
     fun removeSpecific(id : Long)
 }

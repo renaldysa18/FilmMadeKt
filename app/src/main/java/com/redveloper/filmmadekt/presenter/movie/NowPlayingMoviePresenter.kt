@@ -1,7 +1,7 @@
 package com.redveloper.filmmadekt.presenter.movie
 
 import android.util.Log
-import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
+import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.service.BaseApi
 import com.redveloper.filmmadekt.view.view.MovieView
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -21,12 +21,12 @@ class NowPlayingMoviePresenter(val view: MovieView.NowPlaying) : MovieView.NowPl
                 api_key, languange, page
             ).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io())
                 .subscribeWith(
-                    object : DisposableObserver<ResponNowPlayingMovie>() {
+                    object : DisposableObserver<ResponMovie>() {
                         override fun onComplete() {
                             Log.i("GetNowPlaying", "Complete")
                         }
 
-                        override fun onNext(t: ResponNowPlayingMovie) {
+                        override fun onNext(t: ResponMovie) {
                             if(t.results != null){
                                 view.showData(t.results)
                             }

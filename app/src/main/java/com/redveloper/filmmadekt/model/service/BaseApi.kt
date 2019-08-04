@@ -1,9 +1,7 @@
 package com.redveloper.filmmadekt.model.service
 
 import com.google.gson.GsonBuilder
-import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
-import com.redveloper.filmmadekt.model.movie.ResponPopularMovie
-import com.redveloper.filmmadekt.model.movie.ResponUpComingMovie
+import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.tvshow.ResponTopRatedTvShow
 import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
 import io.reactivex.Observable
@@ -24,7 +22,7 @@ interface BaseApi {
         @Query("api_key") api_key: String,
         @Query("language") languange: String,
         @Query("page") page : Int
-    ): Observable<ResponNowPlayingMovie>
+    ): Observable<ResponMovie>
 
     //popular
     @GET("movie/popular?")
@@ -32,7 +30,7 @@ interface BaseApi {
         @Query("api_key") api_key: String,
         @Query("languange") languange: String,
         @Query("page") page: Int
-    ) : Observable<ResponPopularMovie>
+    ) : Observable<ResponMovie>
 
     //comingsoon
     @GET("movie/upcoming?")
@@ -40,7 +38,7 @@ interface BaseApi {
         @Query("api_key") api_key: String,
         @Query("languange") languange: String,
         @Query("page") page: Int
-    ) : Observable<ResponUpComingMovie>
+    ) : Observable<ResponMovie>
 
     //tv show
 

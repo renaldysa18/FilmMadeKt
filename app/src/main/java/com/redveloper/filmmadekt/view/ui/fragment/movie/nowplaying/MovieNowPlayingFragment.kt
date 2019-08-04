@@ -12,15 +12,16 @@ import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.azoft.carousellayoutmanager.CenterScrollListener
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
+import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.presenter.movie.NowPlayingMoviePresenter
+import com.redveloper.filmmadekt.view.ui.fragment.movie.AdapterMovie
 import com.redveloper.filmmadekt.view.view.MovieView
 import kotlinx.android.synthetic.main.fragment_movie_now_playing.view.*
 
 class MovieNowPlayingFragment : Fragment(), MovieView.NowPlaying {
 
     private lateinit var presenter : NowPlayingMoviePresenter
-    private lateinit var adapter : AdapterMovieNowPlaying
+    private lateinit var adapter : AdapterMovie
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,12 +41,12 @@ class MovieNowPlayingFragment : Fragment(), MovieView.NowPlaying {
         context?.resources?.getString(R.string.API_KEY)?.let { presenter.getNowPlayingMovie(it, "en-US", 1) }
     }
 
-    override fun showData(data: List<ResponNowPlayingMovie.Result>?) {
+    override fun showData(data: List<ResponMovie.Result>?) {
         val layoutManager: CarouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true)
         layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
         view?.recyclerview_movie_nowplaying?.layoutManager = layoutManager
         view?.recyclerview_movie_nowplaying?.setHasFixedSize(true)
-        adapter = AdapterMovieNowPlaying(data)
+        adapter = AdapterMovie(data)
         view?.recyclerview_movie_nowplaying?.adapter = adapter
         view?.recyclerview_movie_nowplaying?.addOnScrollListener(CenterScrollListener())
     }

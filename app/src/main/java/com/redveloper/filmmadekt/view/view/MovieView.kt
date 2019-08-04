@@ -1,14 +1,12 @@
 package com.redveloper.filmmadekt.view.view
 
-import com.redveloper.filmmadekt.model.movie.ResponNowPlayingMovie
-import com.redveloper.filmmadekt.model.movie.ResponPopularMovie
-import com.redveloper.filmmadekt.model.movie.ResponUpComingMovie
+import com.redveloper.filmmadekt.model.movie.ResponMovie
 
 interface MovieView{
 
     interface NowPlaying{
         fun callMovie()
-        fun showData(data : List<ResponNowPlayingMovie.Result>?)
+        fun showData(data : List<ResponMovie.Result>?)
         fun showMessage(msg : String)
     }
 
@@ -22,7 +20,7 @@ interface MovieView{
 
     interface UpComing{
         fun CallUpComingMovie()
-        fun showData(data: List<ResponUpComingMovie.Result>?)
+        fun showData(data: List<ResponMovie.Result>?)
         fun showMessage(msg : String)
     }
 
@@ -36,7 +34,7 @@ interface MovieView{
 
     interface Popular{
         fun CallPopularMovie()
-        fun showData(data : List<ResponPopularMovie.Result>?)
+        fun showData(data : List<ResponMovie.Result>?)
         fun showMessage(msg : String)
     }
 

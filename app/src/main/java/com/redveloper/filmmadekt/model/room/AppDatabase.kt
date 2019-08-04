@@ -7,7 +7,7 @@ import android.content.Context
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
 
-@Database(entities = [(ResponMovie.ResultMovie::class),(ResponPopularTvshow.ResultTvShow::class)], version = 5, exportSchema = false)
+@Database(entities = [(ResponMovie.Result::class),(ResponPopularTvshow.ResultTvShow::class)], version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
 

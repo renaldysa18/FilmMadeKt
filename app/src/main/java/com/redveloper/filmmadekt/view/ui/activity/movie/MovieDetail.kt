@@ -8,6 +8,7 @@ import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.presenter.movie.DetailMoviePresenter
+import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.view.DetailView
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 
@@ -54,7 +55,7 @@ class MovieDetail : AppCompatActivity(), DetailView.ViewMovie {
         if (bundle != null) {
             presenter.extractData(
                 applicationContext,
-                bundle.getParcelable("Data")
+                bundle.getParcelable(Constant.dataMovie)
             )
         }
     }

@@ -12,15 +12,16 @@ import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.azoft.carousellayoutmanager.CenterScrollListener
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.movie.ResponPopularMovie
+import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.presenter.movie.PopularMoviePresenter
+import com.redveloper.filmmadekt.view.ui.fragment.movie.AdapterMovie
 import com.redveloper.filmmadekt.view.view.MovieView
 import kotlinx.android.synthetic.main.fragment_movie_popular.view.*
 
 class MoviePopularFragment : Fragment(), MovieView.Popular {
 
     private lateinit var presenter : PopularMoviePresenter
-    private lateinit var adapter : AdapterPopularMovie
+    private lateinit var adapter : AdapterMovie
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,13 +46,13 @@ class MoviePopularFragment : Fragment(), MovieView.Popular {
         }
     }
 
-    override fun showData(data: List<ResponPopularMovie.Result>?) {
+    override fun showData(data: List<ResponMovie.Result>?) {
         val layoutManager: CarouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true)
         layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
         view?.recyclerview_movie_popular?.layoutManager = layoutManager
         view?.recyclerview_movie_popular?.setHasFixedSize(true)
 
-        adapter = AdapterPopularMovie(data)
+        adapter = AdapterMovie(data)
 
         view?.recyclerview_movie_popular?.adapter = adapter
         view?.recyclerview_movie_popular?.addOnScrollListener(CenterScrollListener())

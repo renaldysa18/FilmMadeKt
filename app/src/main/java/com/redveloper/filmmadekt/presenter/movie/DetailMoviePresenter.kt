@@ -8,10 +8,10 @@ import com.redveloper.filmmadekt.view.view.DetailView
 
 class DetailMoviePresenter(val view: DetailView.ViewMovie) : DetailView.PresenterMovie {
 
-    private lateinit var dataGlobal: ResponMovie.ResultMovie
+    private lateinit var dataGlobal: ResponMovie.Result
     private var idMovie: Long = 0
 
-    override fun extractData(context: Context, data: ResponMovie.ResultMovie) {
+    override fun extractData(context: Context, data: ResponMovie.Result) {
         val image: String = context.resources.getString(R.string.BASE_IMAGE) + data.poster_path
         val title: String = data.title.toString()
         val releaseDate: String = data.release_date.toString()
@@ -23,7 +23,10 @@ class DetailMoviePresenter(val view: DetailView.ViewMovie) : DetailView.Presente
         )
         //input data global
         this.dataGlobal = data
-        this.idMovie = data.id!!
+
+        if (data.id != null) {
+            this.idMovie = data.id!!.toLong()
+        }
     }
 
     override fun insertFavorite(context: Context) {
