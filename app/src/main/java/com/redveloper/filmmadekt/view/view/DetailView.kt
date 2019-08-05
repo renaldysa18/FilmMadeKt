@@ -16,7 +16,9 @@ interface DetailView{
             description : String,
             vote : String,
             year : String,
-            backdrop : String
+            backdrop : String,
+            languange : String,
+            adult : String
         )
         fun setFavorite()
         fun addToFavoriteMovie()

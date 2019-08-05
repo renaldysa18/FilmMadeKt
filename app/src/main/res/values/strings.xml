@@ -49,5 +49,10 @@
     <string name="title_setting">Setting</string>
     <string name="title_activity_movie_detail" translatable="false">MovieDetailActivity</string>
     <string name="year">Year</string>
+    <string name="storyline">STORYLINE</string>
+    <string name="about_movie">ABOUT MOVIE</string>
+    <string name="original_title">Original Title :</string>
+    <string name="original_languange">Original Languange</string>
+    <string name="adult">Adult</string>
 
 </resources>

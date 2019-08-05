@@ -20,10 +20,13 @@ class DetailMoviePresenter(val view: DetailView.ViewMovie) : DetailView.Presente
         val description: String = data.overview.toString()
         val vote: String = data.vote_count.toString()
         val backdrop : String = context.resources.getString(R.string.BASE_IMAGE) +data.backdrop_path
+        val languange : String = data.original_languange.toString()
+        val adult : String = data.adult.toString()
 
         view.showData(
             image, title, releaseDate, rating, popularity, description, vote, getYear(releaseDate), backdrop
-            )
+            , languange, adult
+        )
         //input data global
         this.dataGlobal = data
 
