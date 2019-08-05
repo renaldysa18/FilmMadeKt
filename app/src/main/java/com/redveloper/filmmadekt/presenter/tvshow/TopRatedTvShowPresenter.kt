@@ -2,7 +2,7 @@ package com.redveloper.filmmadekt.presenter.tvshow
 
 import android.util.Log
 import com.redveloper.filmmadekt.model.service.BaseApi
-import com.redveloper.filmmadekt.model.tvshow.ResponTopRatedTvShow
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 import com.redveloper.filmmadekt.view.view.TvshowView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -21,12 +21,12 @@ class TopRatedTvShowPresenter(val view : TvshowView.TopRated) : TvshowView.TopRa
             ).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribeWith(
-                    object : DisposableObserver<ResponTopRatedTvShow>(){
+                    object : DisposableObserver<ResponTvShow>(){
                         override fun onComplete() {
                             Log.i("GetTopRated", "Complete")
                         }
 
-                        override fun onNext(t: ResponTopRatedTvShow) {
+                        override fun onNext(t: ResponTvShow) {
                             if(t.results != null){
                                 view.showData(t.results)
                             }

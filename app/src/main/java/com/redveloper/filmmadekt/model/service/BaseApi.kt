@@ -2,8 +2,7 @@ package com.redveloper.filmmadekt.model.service
 
 import com.google.gson.GsonBuilder
 import com.redveloper.filmmadekt.model.movie.ResponMovie
-import com.redveloper.filmmadekt.model.tvshow.ResponTopRatedTvShow
-import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -48,7 +47,7 @@ interface BaseApi {
         @Query("api_key") api_key: String,
         @Query("languange") languange : String,
         @Query("page") page : Int
-    ) : Observable<ResponPopularTvshow>
+    ) : Observable<ResponTvShow>
 
     //top rated
     @GET("tv/top_rated?")
@@ -56,7 +55,7 @@ interface BaseApi {
         @Query("api_key") api_key: String,
         @Query("language") languange: String,
         @Query("page") page : Int
-    ) : Observable<ResponTopRatedTvShow>
+    ) : Observable<ResponTvShow>
 
     companion object {
         var URL: String = "https://api.themoviedb.org/3/"

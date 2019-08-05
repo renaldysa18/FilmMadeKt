@@ -11,13 +11,14 @@ import android.widget.LinearLayout
 import android.widget.Toast
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 import com.redveloper.filmmadekt.presenter.tvshow.PopularTvShowPresenter
+import com.redveloper.filmmadekt.view.ui.fragment.tvshow.TvShowAdapter
 import com.redveloper.filmmadekt.view.view.TvshowView
 import kotlinx.android.synthetic.main.fragment_tvshow_popular.view.*
 
 class TvshowPopularFragment : Fragment(), TvshowView.Popular {
-    private lateinit var adapter : TvshowPopularAdapter
+    private lateinit var adapter : TvShowAdapter
     private lateinit var presenter : PopularTvShowPresenter
 
     override fun onCreateView(
@@ -42,8 +43,8 @@ class TvshowPopularFragment : Fragment(), TvshowView.Popular {
         }
     }
 
-    override fun showData(data: List<ResponPopularTvshow.ResultTvShow>?) {
-        adapter = TvshowPopularAdapter(data)
+    override fun showData(data: List<ResponTvShow.Result>?) {
+        adapter = TvShowAdapter(data)
         view?.recyclerview_popular_tvshow?.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         view?.recyclerview_popular_tvshow?.adapter = adapter
     }

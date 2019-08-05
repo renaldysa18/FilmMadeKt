@@ -11,14 +11,15 @@ import android.widget.LinearLayout
 import android.widget.Toast
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.tvshow.ResponTopRatedTvShow
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 import com.redveloper.filmmadekt.presenter.tvshow.TopRatedTvShowPresenter
+import com.redveloper.filmmadekt.view.ui.fragment.tvshow.TvShowAdapter
 import com.redveloper.filmmadekt.view.view.TvshowView
 import kotlinx.android.synthetic.main.fragment_tvshow_top_rated.view.*
 
 class TvshowTopRatedFragment : Fragment(), TvshowView.TopRated {
 
-    private lateinit var adapter : TvShowTopRatedAdapter
+    private lateinit var adapter : TvShowAdapter
     private lateinit var presenter: TopRatedTvShowPresenter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,9 +43,9 @@ class TvshowTopRatedFragment : Fragment(), TvshowView.TopRated {
         }
     }
 
-    override fun showData(data: List<ResponTopRatedTvShow.Result>?) {
+    override fun showData(data: List<ResponTvShow.Result>?) {
         view?.recyclerview_toprated_tvshow?.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
-        adapter = TvShowTopRatedAdapter(data)
+        adapter = TvShowAdapter(data)
         view?.recyclerview_toprated_tvshow?.adapter = adapter
     }
 

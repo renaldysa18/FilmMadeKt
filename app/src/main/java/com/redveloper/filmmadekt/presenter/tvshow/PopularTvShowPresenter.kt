@@ -2,7 +2,7 @@ package com.redveloper.filmmadekt.presenter.tvshow
 
 import android.util.Log
 import com.redveloper.filmmadekt.model.service.BaseApi
-import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 import com.redveloper.filmmadekt.view.view.TvshowView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -22,12 +22,12 @@ class PopularTvShowPresenter(val view : TvshowView.Popular) : TvshowView.Popular
             ).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribeWith(
-                    object : DisposableObserver<ResponPopularTvshow>(){
+                    object : DisposableObserver<ResponTvShow>(){
                         override fun onComplete() {
                             Log.i("getTvShowPopular", "Complete")
                         }
 
-                        override fun onNext(t: ResponPopularTvshow) {
+                        override fun onNext(t: ResponTvShow) {
                             if(t.results != null){
                                 view.showData(t.results)
                             }

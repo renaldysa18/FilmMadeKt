@@ -1,12 +1,11 @@
 package com.redveloper.filmmadekt.view.view
 
-import com.redveloper.filmmadekt.model.tvshow.ResponPopularTvshow
-import com.redveloper.filmmadekt.model.tvshow.ResponTopRatedTvShow
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 
 interface TvshowView{
     interface Popular{
         fun callTvShowPopular()
-        fun showData(data : List<ResponPopularTvshow.ResultTvShow>?)
+        fun showData(data : List<ResponTvShow.Result>?)
         fun showMessage(msg : String)
     }
     interface PopularPresenter{
@@ -18,7 +17,7 @@ interface TvshowView{
     }
     interface TopRated{
         fun callTvShowTopRated()
-        fun showData(data : List<ResponTopRatedTvShow.Result>?)
+        fun showData(data : List<ResponTvShow.Result>?)
         fun showMessage(msg : String)
     }
     interface TopRatedPresenter{

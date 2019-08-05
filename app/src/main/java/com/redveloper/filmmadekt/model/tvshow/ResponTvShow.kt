@@ -1,11 +1,13 @@
 package com.redveloper.filmmadekt.model.tvshow
 
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-class ResponTopRatedTvShow{
+class ResponTvShow{
     @SerializedName("page")
     @Expose
     var page : Int? = 0
@@ -19,23 +21,18 @@ class ResponTopRatedTvShow{
     @Expose
     var results : List<Result>? = null
 
+    @Entity(tableName = "tvshowdb")
     @Parcelize
     data class Result(
         @SerializedName("original_name")
         @Expose
         val orignal_name : String,
-        @SerializedName("genre_ids")
-        @Expose
-        val genre_ids : List<Int>,
         @SerializedName("name")
         @Expose
         val name : String,
         @SerializedName("popularity")
         @Expose
         val popularity : Double,
-        @SerializedName("origin_country")
-        @Expose
-        val origin_country : List<String>,
         @SerializedName("vote_count")
         @Expose
         val vote_count : Int,
@@ -48,6 +45,7 @@ class ResponTopRatedTvShow{
         @SerializedName("original_language")
         @Expose
         val original_language : String,
+        @PrimaryKey
         @SerializedName("id")
         @Expose
         val id : Int,
