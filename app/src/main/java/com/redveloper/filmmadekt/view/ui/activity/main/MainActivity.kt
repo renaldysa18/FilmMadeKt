@@ -38,6 +38,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        //default fragment
+        moveFragment(MovieFragment())
+        title.setText(applicationContext.resources.getString(R.string.title_movie))
+
     }
 
     override fun onBackPressed() {
