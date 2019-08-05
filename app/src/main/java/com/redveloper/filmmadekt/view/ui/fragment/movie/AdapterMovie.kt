@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.utils.Constant
-import com.redveloper.filmmadekt.view.ui.activity.movie.MovieDetail
+import com.redveloper.filmmadekt.view.ui.activity.movie.MovieDetailActivity
 import kotlinx.android.synthetic.main.list_item.view.*
 
 class AdapterMovie(val items: List<ResponMovie.Result>?) :
@@ -69,7 +69,7 @@ class AdapterMovie(val items: List<ResponMovie.Result>?) :
         }
 
         private fun toDetail(data: ResponMovie.Result) {
-            val intent : Intent = Intent(itemView.context, MovieDetail::class.java)
+            val intent : Intent = Intent(itemView.context, MovieDetailActivity::class.java)
             intent.putExtra(Constant.dataMovie, data)
             itemView.context.startActivity(intent)
         }

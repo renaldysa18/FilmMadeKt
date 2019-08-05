@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">FilmMadeKt</string>
-    <string name="BASE_IMAGE" translatable="false">https://image.tmdb.org/t/p/w300</string>
+    <string name="BASE_IMAGE" translatable="false">https://image.tmdb.org/t/p/w500</string>
     <string name="API_KEY" translatable="false">9764540cc75307bf937adec56fb19821</string>
 
     <string name="title_home">Home</string>
@@ -47,5 +47,7 @@
     <string name="bahasa_indonesia" translatable="false">Indonesia</string>
     <string name="bahasa_inggris" translatable="false">English</string>
     <string name="title_setting">Setting</string>
+    <string name="title_activity_movie_detail" translatable="false">MovieDetailActivity</string>
+    <string name="year">Year</string>
 
 </resources>
