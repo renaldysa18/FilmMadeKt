@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".view.ui.activity.tvshow.TvshowDetail">
+    tools:context=".view.ui.activity.tvshow.TvshowDetailActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -24,11 +24,14 @@
             app:toolbarId="@+id/toolbar">
 
             <ImageView
-                android:scaleType="center"
-                android:id="@+id/imageview_detailtvshow"
-                android:contentDescription="@string/image"
+                android:scaleType="fitXY"
+                android:id="@+id/imageview_appbar_tvshow_detail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:contentDescription="@string/image" />
+
+            <include layout="@layout/content_detail_appar"/>
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"

@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:contentDescription="@string/image" />
 
-            <include layout="@layout/content_movie_detail_appar"/>
+            <include layout="@layout/content_detail_appar"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"

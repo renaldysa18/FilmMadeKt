@@ -13,7 +13,7 @@ import com.redveloper.filmmadekt.view.ui.activity.AdapterPict
 import com.redveloper.filmmadekt.view.view.DetailView
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.content_movie_detail.*
-import kotlinx.android.synthetic.main.content_movie_detail_appar.*
+import kotlinx.android.synthetic.main.content_detail_appar.*
 
 class MovieDetailActivity : AppCompatActivity(), DetailView.ViewMovie{
 
@@ -67,17 +67,17 @@ class MovieDetailActivity : AppCompatActivity(), DetailView.ViewMovie{
             .load(backdrop)
             .into(imageview_appbar_movie_detail)
 
-        textview_title_appbar_movie_detail.setText(title)
-        textview_year_movie_detail.setText(year)
-        textview_rating_appbar_movie_detail.setText(rating)
-        textview_vote_appbar_movie_detail.setText(vote)
+        textview_title_appbar__detail.setText(title)
+        textview_year__detail.setText(year)
+        textview_rating_appbar__detail.setText(rating)
+        textview_vote_appbar__detail.setText(vote)
 
         var ratingLong = rating.toDouble()
         if(ratingLong > 5.0){
             ratingLong = ratingLong - 5.0
         }
 
-        ratingbar_appbar_movie_detail.rating = ratingLong.toFloat()
+        ratingbar_appbar__detail.rating = ratingLong.toFloat()
 
         //content
         textview_storyline_movie_detail.setText(description)

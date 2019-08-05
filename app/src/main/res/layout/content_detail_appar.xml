@@ -8,7 +8,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textview_year_movie_detail"
+        android:id="@+id/textview_year__detail"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:padding="10dp"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/textview_title_appbar_movie_detail"
+        android:id="@+id/textview_title_appbar__detail"
         android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
@@ -28,15 +28,15 @@
         android:layout_margin="10dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_year_movie_detail"
+        app:layout_constraintTop_toBottomOf="@id/textview_year__detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/textview_rating_appbar_movie_detail"
+        android:id="@+id/textview_rating_appbar__detail"
         android:textSize="35sp"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@id/textview_title_appbar_movie_detail"
+        app:layout_constraintBottom_toTopOf="@id/textview_title_appbar__detail"
         app:layout_constraintRight_toRightOf="parent"
         android:textStyle="normal"
         android:text="@string/rating"
@@ -47,23 +47,23 @@
         android:stepSize="0.5"
         android:numStars="5"
         android:progressTint="@color/colorYellow"
-        android:id="@+id/ratingbar_appbar_movie_detail"
-        app:layout_constraintBottom_toTopOf="@id/textview_vote_appbar_movie_detail"
+        android:id="@+id/ratingbar_appbar__detail"
+        app:layout_constraintBottom_toTopOf="@id/textview_vote_appbar__detail"
         android:layout_marginEnd="15dp"
         style="@style/Widget.AppCompat.RatingBar.Small"
-        app:layout_constraintRight_toLeftOf="@id/textview_rating_appbar_movie_detail"
+        app:layout_constraintRight_toLeftOf="@id/textview_rating_appbar__detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/textview_vote_appbar_movie_detail"
+        android:id="@+id/textview_vote_appbar__detail"
         android:textColor="@android:color/darker_gray"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         android:layout_marginEnd="10dp"
         android:text="@string/vote"
-        app:layout_constraintRight_toLeftOf="@id/textview_rating_appbar_movie_detail"
-        app:layout_constraintBottom_toTopOf="@id/textview_title_appbar_movie_detail"
+        app:layout_constraintRight_toLeftOf="@id/textview_rating_appbar__detail"
+        app:layout_constraintBottom_toTopOf="@id/textview_title_appbar__detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </android.support.constraint.ConstraintLayout>

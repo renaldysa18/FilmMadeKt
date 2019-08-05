@@ -46,9 +46,13 @@ interface DetailView{
         fun showData(
             image : String?,
             title : String?,
+            releaseDate : String?,
             rating : String?,
             popularity : String?,
-            description : String?
+            description : String?,
+            vote : String?,
+            year : String?,
+            backdrop : String?
         )
         fun setFavorite()
         fun addToFavoriteMovie()

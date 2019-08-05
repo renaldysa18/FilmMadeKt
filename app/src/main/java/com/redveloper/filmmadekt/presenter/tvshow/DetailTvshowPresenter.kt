@@ -14,17 +14,26 @@ class DetailTvshowPresenter(val view : DetailView.ViewTvshow) : DetailView.Prese
 
     override fun extractData(context: Context, data: ResponTvShow.Result) {
         val image : String? = context.resources.getString(R.string.BASE_IMAGE) + data.poster_path
-        val title : String? = data.name.toString()
+        val title : String? = data.name
+        val releaseDate : String? = data.first_air_date
         val rating : String? = data.vote_average.toString()
         val popularity : String? = data.popularity.toString()
-        val description : String? = data.overview.toString()
+        val description : String? = data.overview
+        val vote: String = data.vote_count.toString()
+        val backdrop : String = context.resources.getString(R.string.BASE_IMAGE) +data.backdrop_path
 
         view.showData(
-            image, title, rating, popularity, description
+            image, title, releaseDate,  rating, popularity, description, vote,
+            getYear(releaseDate), backdrop
         )
 
         this.dataGlobal = data
         idTvshow = data.id.toLong()
+    }
+
+    private fun getYear(date: String?): String? {
+        val year = date?.split("-")
+        return year?.get(0)
     }
 
     override fun insertFavorite(context: Context) {

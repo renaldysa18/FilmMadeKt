@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.ui.activity.tvshow.TvshowDetail"
+            android:name=".view.ui.activity.tvshow.TvshowDetailActivity"
             android:label="@string/title_activity_tvshow_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.ui.activity.movie.MovieDetail" />
