@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import com.redveloper.filmmadekt.R
@@ -15,10 +16,11 @@ import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.content_movie_detail.*
 import kotlinx.android.synthetic.main.content_detail_appar.*
 
-class MovieDetailActivity : AppCompatActivity(), DetailView.ViewMovie{
+class MovieDetailActivity : AppCompatActivity(), DetailView.ViewMovie, View.OnClickListener {
 
     private lateinit var presenter : DetailMoviePresenter
     private lateinit var adapter : AdapterPict
+    private var isFavorite : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,27 @@ class MovieDetailActivity : AppCompatActivity(), DetailView.ViewMovie{
 
         getData()
 
+        favoriteState()
+        setFavorite()
+
+        button_favorite_movie.setOnClickListener(this)
+
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.button_favorite_movie -> clickFavorite()
+        }
+    }
+
+    private fun clickFavorite() {
+        if(isFavorite){
+            removeToFavoriteMovie()
+        } else {
+            addToFavoriteMovie()
+        }
+        isFavorite = !isFavorite
+        setFavorite()
     }
 
     override fun getData() {
@@ -95,14 +118,27 @@ class MovieDetailActivity : AppCompatActivity(), DetailView.ViewMovie{
     }
 
     override fun setFavorite() {
+        if(isFavorite){
+            button_favorite_movie.setBackgroundResource(R.drawable.rounded_corner_yellow)
+            button_favorite_movie.setTextColor(resources.getColorStateList(android.R.color.white))
+        } else {
+            button_favorite_movie.setBackgroundResource(R.drawable.rounded_corner_white)
+            button_favorite_movie.setTextColor(resources.getColorStateList(R.color.colorYellow))
+        }
+
     }
 
     override fun addToFavoriteMovie() {
+        presenter.insertFavorite(applicationContext)
     }
 
     override fun removeToFavoriteMovie() {
+        presenter.removeFavorite(applicationContext)
     }
 
     override fun favoriteState() {
+        if(presenter.checkFavorite(applicationContext)){
+            isFavorite = true
+        }
     }
 }
