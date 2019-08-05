@@ -1,10 +1,12 @@
 package com.redveloper.filmmadekt.view.ui.activity.tvshow
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
+import android.view.View
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import com.redveloper.filmmadekt.R
@@ -16,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_tvshow_detail.*
 import kotlinx.android.synthetic.main.content_detail_appar.*
 import kotlinx.android.synthetic.main.content_tvshow_detail.*
 
-class TvshowDetailActivity : AppCompatActivity(), DetailView.ViewTvshow {
+class TvshowDetailActivity : AppCompatActivity(), DetailView.ViewTvshow, View.OnClickListener {
 
     private lateinit var presenter: DetailTvshowPresenter
     private lateinit var adapter : AdapterPict
@@ -32,6 +34,25 @@ class TvshowDetailActivity : AppCompatActivity(), DetailView.ViewTvshow {
         getData()
 
         favoriteState()
+        setFavorite()
+
+        button_favorite_tvshow.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.button_favorite_tvshow -> clickFavorite()
+        }
+    }
+
+    private fun clickFavorite() {
+        if(isFavorite){
+            removeToFavoriteMovie()
+        } else {
+            addToFavoriteMovie()
+        }
+        isFavorite = !isFavorite
+        setFavorite()
     }
 
     override fun getData() {
@@ -95,10 +116,12 @@ class TvshowDetailActivity : AppCompatActivity(), DetailView.ViewTvshow {
     }
     
     override fun setFavorite() {
-        if (isFavorite) {
-            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(applicationContext, R.drawable.ic_star_fill)
+        if (!isFavorite) {
+            button_favorite_tvshow.setBackgroundResource(R.drawable.rounded_corner_white)
+            button_favorite_tvshow.setTextColor(resources.getColorStateList(R.color.colorYellow))
         } else {
-            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(applicationContext, R.drawable.ic_star_no_fill)
+            button_favorite_tvshow.setBackgroundResource(R.drawable.rounded_corner_yellow)
+            button_favorite_tvshow.setTextColor(resources.getColorStateList(android.R.color.white))
         }
     }
 
