@@ -13,5 +13,7 @@ interface FavoriteView{
     }
     interface View{
         fun listFavoriteMovie(data : List<ResponMovie.Result>?)
+        fun listFavoriteTvshow(data : List<ResponTvShow.Result>?)
+
     }
 }
