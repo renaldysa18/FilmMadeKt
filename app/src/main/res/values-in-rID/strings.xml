@@ -36,4 +36,10 @@
     <string name="year">Tahun</string>
     <string name="storyline">CERITA</string>
     <string name="about_movie">TENTANG FILM</string>
+    <string name="original_title">Judul</string>
+    <string name="original_languange">Bahasa</string>
+    <string name="adult">Dewasa</string>
+    <string name="about_tvshow">TENTANG TV SHOW</string>
+    <string name="favorite_movie">Film Favorit</string>
+    <string name="favorite_tvshow">Acara TV Favorit</string>
 </resources>

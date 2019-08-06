@@ -10,14 +10,14 @@ import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.ui.activity.movie.MovieDetailActivity
-import kotlinx.android.synthetic.main.list_item.view.*
+import kotlinx.android.synthetic.main.list_item_movie.view.*
 
 class AdapterMovie(val items: List<ResponMovie.Result>?) :
     RecyclerView.Adapter<AdapterMovie.ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(p0.context).inflate(
-                R.layout.list_item,
+                R.layout.list_item_movie,
                 p0,
                 false
             )

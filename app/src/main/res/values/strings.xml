@@ -55,5 +55,9 @@
     <string name="original_languange">Original Languange</string>
     <string name="adult">Adult</string>
     <string name="about_tvshow">ABOUT TV SHOW</string>
+    <string name="favorite_movie">Favorite Movie</string>
+    <string name="favorite_tvshow">Favorite Tv Show</string>
+    <string name="data_movie_empety">Favorite movie data is empty</string>
+    <string name="data_tvshow_empety">Favorite tvshow data is empty</string>
 
 </resources>
