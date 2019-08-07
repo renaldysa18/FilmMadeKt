@@ -59,5 +59,7 @@
     <string name="favorite_tvshow">Favorite Tv Show</string>
     <string name="data_movie_empety">Favorite movie data is empty</string>
     <string name="data_tvshow_empety">Favorite tvshow data is empty</string>
+    <string name="search">Search</string>
+    <string name="exit">Exit</string>
 
 </resources>

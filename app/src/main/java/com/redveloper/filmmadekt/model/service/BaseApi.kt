@@ -5,6 +5,7 @@ import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -38,6 +39,14 @@ interface BaseApi {
         @Query("languange") languange: String,
         @Query("page") page: Int
     ) : Observable<ResponMovie>
+
+    //search movie
+    @GET("search/movie?")
+    fun searchMovie(
+        @Query("api_key") api_key : String,
+        @Query("language") languange: String,
+        @Query("query") query : String
+    ) : Observable<Response<ResponMovie>>
 
     //tv show
 
