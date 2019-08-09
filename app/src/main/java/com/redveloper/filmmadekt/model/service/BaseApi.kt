@@ -66,6 +66,14 @@ interface BaseApi {
         @Query("page") page : Int
     ) : Observable<ResponTvShow>
 
+    //search tv show
+    @GET("search/tv?")
+    fun searchTvShow(
+        @Query("api_key") api_key : String,
+        @Query("language") languange: String,
+        @Query("query") query: String
+    ) : Observable<Response<ResponTvShow>>
+
     companion object {
         var URL: String = "https://api.themoviedb.org/3/"
         fun create(): BaseApi {

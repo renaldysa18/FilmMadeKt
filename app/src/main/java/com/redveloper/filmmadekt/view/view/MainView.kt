@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.view
 
 import com.redveloper.filmmadekt.model.movie.ResponMovie
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 
 interface MainView {
     interface MoviePresenter {
@@ -17,5 +18,17 @@ interface MainView {
         fun changeLayout()
     }
 
-    interface TvShowPresenter
+    interface TvShowPresenter{
+        fun searchTvShow(api_key: String, languange: String, query: String)
+    }
+
+    interface TvShow{
+        fun searchTvshow(query: String)
+        fun showDialogFragment()
+        fun showDialog()
+        fun showMessage(message : String)
+        fun hideDialog()
+        fun showData(data : List<ResponTvShow.Result>)
+        fun changeLayout()
+    }
 }

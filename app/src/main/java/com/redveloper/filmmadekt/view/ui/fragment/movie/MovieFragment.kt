@@ -40,7 +40,7 @@ class MovieFragment : Fragment(), View.OnClickListener, MainView.Movie {
         super.onViewCreated(view, savedInstanceState)
 
         presenter = MoviePresenter(this)
-        progressDialog = ProgressDialog(activity)
+        progressDialog = ProgressDialog(context)
 
         val adapter = context?.let { MovieViewPager(childFragmentManager, it) }
         view.customPager_movie.adapter = adapter
