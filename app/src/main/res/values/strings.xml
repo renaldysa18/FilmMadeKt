@@ -61,5 +61,7 @@
     <string name="data_tvshow_empety">Favorite tvshow data is empty</string>
     <string name="search">Search</string>
     <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
+    <string name="please_wait">Please wait . . .</string>
 
 </resources>

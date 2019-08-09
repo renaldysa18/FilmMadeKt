@@ -15,6 +15,7 @@
             android:textColor="@color/colorBlueSoft"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:text="@string/search"
+            android:textStyle="bold"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -29,29 +30,30 @@
             app:layout_constraintTop_toBottomOf="@id/text_search_df"
             android:layout_margin="25dp"
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
-        
+            android:layout_height="40dp"/>
         <Button
+            android:layout_marginTop="15dp"
             android:id="@+id/button_exit_df"
             android:textColor="@color/colorBlueSoft"
             android:text="@string/exit"
             android:background="@drawable/button_rounded_outline_blue"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="30dp"
             app:layout_constraintRight_toLeftOf="@id/guidline_50_vertical_df"
             app:layout_constraintTop_toBottomOf="@id/edittext_search_df"
-            android:layout_width="130dp"
-            android:layout_height="55dp" />
+            android:layout_width="120dp"
+            android:layout_height="40dp" />
 
         <Button
+            android:layout_marginTop="15dp"
             android:id="@+id/button_search_df"
             android:textColor="@color/colorBlueSoft"
             android:text="@string/search"
             android:background="@drawable/button_rounded_outline_blue"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             app:layout_constraintLeft_toRightOf="@id/guidline_50_vertical_df"
             app:layout_constraintTop_toBottomOf="@id/edittext_search_df"
-            android:layout_width="130dp"
-            android:layout_height="55dp" />
+            android:layout_width="120dp"
+            android:layout_height="40dp" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guidline_50_vertical_df"

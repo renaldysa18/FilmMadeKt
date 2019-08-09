@@ -10,13 +10,15 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
 
-class MoviePresenter : MainView.MoviePresenter{
+class MoviePresenter(val view: MainView.Movie) : MainView.MoviePresenter {
     private val baseApi = BaseApi.create()
     private var compositeDisposable: CompositeDisposable? = null
 
-    private var dataMovie : List<ResponMovie.Result>? = null
+    private var dataMovie: List<ResponMovie.Result>? = null
 
     override fun searchMovie(api_key: String, languange: String, query: String) {
+        view.showDialog()
+
         compositeDisposable = CompositeDisposable()
         compositeDisposable?.add(
             baseApi.searchMovie(
@@ -24,31 +26,27 @@ class MoviePresenter : MainView.MoviePresenter{
             ).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribeWith(
-                    object : DisposableObserver<Response<ResponMovie>>(){
+                    object : DisposableObserver<Response<ResponMovie>>() {
                         override fun onComplete() {
                             Log.i("searchMovie", "Complete")
+                            view.hideDialog()
+
                         }
 
                         override fun onNext(t: Response<ResponMovie>) {
-                            if(t.code() == 200 && t.isSuccessful){
+                            if (t.code() == 200 && t.isSuccessful) {
                                 dataMovie = t.body()?.results
+                                view.showData(dataMovie)
                             }
                         }
 
                         override fun onError(e: Throwable) {
-
+                            view.hideDialog()
+                            view.showMessage(e.localizedMessage)
                         }
                     }
                 )
         )
     }
 
-
-    override fun getMovie(): List<ResponMovie.Result> {
-        if(!dataMovie.isNullOrEmpty()){
-            return dataMovie as List<ResponMovie.Result>
-        } else {
-            return ArrayList()
-        }
-    }
 }
