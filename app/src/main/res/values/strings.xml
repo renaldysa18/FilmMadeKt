@@ -63,5 +63,8 @@
     <string name="exit">Exit</string>
     <string name="cancel">Cancel</string>
     <string name="please_wait">Please wait . . .</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="appwidget_text">Favorite</string>
+    <string name="empty_text">Empety</string>
 
 </resources>

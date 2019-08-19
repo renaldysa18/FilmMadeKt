@@ -11,10 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver android:name=".widget.Favorite">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/favorite_info" />
+        </receiver>
+
         <activity
             android:name=".view.ui.activity.movie.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.ui.activity.main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -28,7 +38,10 @@
             android:name=".view.ui.activity.tvshow.TvshowDetailActivity"
             android:label="@string/title_activity_tvshow_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.ui.activity.movie.MovieDetail" />
+
+        <service
+            android:name="com.redveloper.filmmadekt.model.service.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 
 </manifest>
