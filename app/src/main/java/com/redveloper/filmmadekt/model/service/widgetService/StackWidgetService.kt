@@ -1,4 +1,4 @@
-package com.redveloper.filmmadekt.model.service
+package com.redveloper.filmmadekt.model.service.widgetService
 
 import android.content.Intent
 import android.widget.RemoteViewsService

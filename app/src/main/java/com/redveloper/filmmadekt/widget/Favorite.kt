@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.service.StackWidgetService
+import com.redveloper.filmmadekt.model.service.widgetService.StackWidgetService
 import java.util.*
 
 /**
