@@ -7,11 +7,14 @@ interface SettingView{
     interface View{
         fun switchIndo()
         fun switchEnglish()
+        fun switchDailyAlarm()
     }
 
     interface Presenter{
         fun changeColorOn(switchbutton: SwitchButton?)
         fun changeColorOff(switchbutton: SwitchButton?)
         fun changeLanguange(context : Context?, lang : String)
+        fun settingDailyAlarm(isNotif : Boolean, isRepeat : Boolean, context: Context)
     }
+
 }

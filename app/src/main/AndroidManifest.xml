@@ -21,6 +21,17 @@
                 android:resource="@xml/favorite_info" />
         </receiver>
 
+        <receiver android:name=".model.service.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".model.service.alarmService.AlarmNotificationDailyReceiver"/>
+
         <activity
             android:name=".view.ui.activity.movie.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
@@ -42,6 +53,10 @@
         <service
             android:name="com.redveloper.filmmadekt.model.service.widgetService.StackWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <service android:name=".model.service.alarmService.AlarmService"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>

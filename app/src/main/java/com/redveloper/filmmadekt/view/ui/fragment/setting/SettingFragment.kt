@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_setting.view.*
 
 class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
 
-    private lateinit var presenter : SettingPresenter
+    private lateinit var presenter: SettingPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +30,7 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
 
         view.switchbutton_bahasa_indo.setOnClickListener(this)
         view.switchbutton_bahasa_ing.setOnClickListener(this)
+        view.switchbutton_alarm_daily.setOnClickListener(this)
 
         val languange = resources.configuration.locale.language
         if (languange.equals("in")) {
@@ -66,11 +67,19 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
         }
     }
 
+    override fun switchDailyAlarm() {
+        if (view?.switchbutton_alarm_daily?.isChecked == true) {
+            context?.let { presenter.settingDailyAlarm(true, true, it) }
+        } else {
+            context?.let { presenter.settingDailyAlarm(false, false, it) }
+        }
+    }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.switchbutton_bahasa_indo -> switchIndo()
             R.id.switchbutton_bahasa_ing -> switchEnglish()
+            R.id.switchbutton_alarm_daily -> switchDailyAlarm()
         }
     }
 }
