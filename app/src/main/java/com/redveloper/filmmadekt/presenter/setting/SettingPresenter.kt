@@ -46,10 +46,10 @@ class SettingPresenter(val view : SettingView.View) : SettingView.Presenter{
         val intent = Intent(context, AlarmNotificationDailyReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, 0, intent,0)
 
-        if(!isRepeat){
-            alarmManager.set(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime()+3000,pendingIntent)
-        } else {
+        if(isRepeat){
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calender.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
+        } else {
+            alarmManager.cancel(pendingIntent)
         }
     }
 }

@@ -34,10 +34,10 @@ class AlarmService : Service(){
         val intent = Intent(this, AlarmNotificationDailyReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(this, 0, intent,0)
 
-        if(!isRepeat){
-            alarmManager.set(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime()+3000,pendingIntent)
-        } else {
+        if(isRepeat){
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calender.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
+        } else {
+            alarmManager.cancel(pendingIntent)
         }
     }
 
