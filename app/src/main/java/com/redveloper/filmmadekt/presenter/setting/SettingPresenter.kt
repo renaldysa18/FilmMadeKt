@@ -40,13 +40,13 @@ class SettingPresenter(val view : SettingView.View) : SettingView.Presenter{
 
         //set Time
         val calender = Calendar.getInstance()
-        calender.set(Calendar.HOUR_OF_DAY, 7)
-        calender.set(Calendar.MINUTE, 0)
+        calender.set(Calendar.HOUR_OF_DAY, 21)
+        calender.set(Calendar.MINUTE, 45)
 
         val intent = Intent(context, AlarmNotificationDailyReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, 0, intent,0)
 
-        if(isRepeat){
+        if(!isRepeat){
             alarmManager.set(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime()+3000,pendingIntent)
         } else {
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calender.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
