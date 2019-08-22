@@ -49,6 +49,7 @@ dependencies {
     implementation config.commonDependency.carouselRv
     implementation config.commonDependency.circularImage
     implementation config.commonDependency.switchButton
+    implementation config.commonDependency.easyPref
 
     testImplementation config.commonDependency.jUnitLib
     annotationProcessor config.commonDependency.roomAnnotation
