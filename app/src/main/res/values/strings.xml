@@ -66,5 +66,8 @@
     <string name="add_widget" translatable="false">Add widget</string>
     <string name="appwidget_text">Favorite</string>
     <string name="empty_text">Empety</string>
+    <string name="notif_daily">check out your favorite movie or tv show</string>
+    <string name="TIME_DAILY" translatable="false">14:15</string>
+    <string name="info">Info</string>
 
 </resources>

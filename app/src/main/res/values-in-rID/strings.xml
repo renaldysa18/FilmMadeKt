@@ -48,4 +48,7 @@
     <string name="exit">Keluar</string>
     <string name="cancel">Batal</string>
     <string name="please_wait">Harap Tunggu . . .</string>
+    <string name="appwidget_text">Favorit</string>
+    <string name="empty_text">Kosong</string>
+    <string name="notif_daily">lihat film atau acara tv favorit Anda</string>
 </resources>

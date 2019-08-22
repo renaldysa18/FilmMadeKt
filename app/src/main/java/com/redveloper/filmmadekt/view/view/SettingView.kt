@@ -7,6 +7,9 @@ interface SettingView{
     interface View{
         fun switchIndo()
         fun switchEnglish()
+    }
+
+    interface Presenter{
         fun changeColorOn(switchbutton: SwitchButton?)
         fun changeColorOff(switchbutton: SwitchButton?)
         fun changeLanguange(context : Context?, lang : String)

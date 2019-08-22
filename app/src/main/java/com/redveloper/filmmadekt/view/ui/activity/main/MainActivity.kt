@@ -18,15 +18,16 @@ import com.redveloper.filmmadekt.view.ui.fragment.tvshow.TvshowFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var title : TextView
+    private lateinit var title: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val toolbar: Toolbar = findViewById(R.id.toolbar_main)
         title = toolbar.findViewById(R.id.toolbar_title)
         setSupportActionBar(toolbar)
-        title.setText(toolbar.title)
+        title.text = toolbar.title
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -39,9 +40,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         navView.setNavigationItemSelectedListener(this)
 
+
         //default fragment
         moveFragment(MovieFragment())
-        title.setText(applicationContext.resources.getString(R.string.title_movie))
+        title.text = applicationContext.resources.getString(R.string.title_movie)
 
     }
 
@@ -59,19 +61,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_movie -> {
                 moveFragment(MovieFragment())
-                title.setText(applicationContext.resources.getString(R.string.title_movie))
+                title.text = applicationContext.resources.getString(R.string.title_movie)
             }
             R.id.nav_tvshow -> {
                 moveFragment(TvshowFragment())
-                title.setText(applicationContext.resources.getString(R.string.title_tvshow))
+                title.text = applicationContext.resources.getString(R.string.title_tvshow)
             }
             R.id.nav_favorite -> {
                 moveFragment(FavoriteFragment())
-                title.setText(applicationContext.resources.getString(R.string.title_favorite))
+                title.text = applicationContext.resources.getString(R.string.title_favorite)
             }
             R.id.nav_tools -> {
                 moveFragment(SettingFragment())
-                title.setText(applicationContext.resources.getString(R.string.title_setting))
+                title.text = applicationContext.resources.getString(R.string.title_setting)
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
