@@ -69,5 +69,7 @@
     <string name="notif_daily">check out your favorite movie or tv show</string>
     <string name="TIME_DAILY" translatable="false">14:15</string>
     <string name="info">Info</string>
+    <string name="alarm">Setting Alarm</string>
+    <string name="alarm_daily">Alarm Daily</string>
 
 </resources>
