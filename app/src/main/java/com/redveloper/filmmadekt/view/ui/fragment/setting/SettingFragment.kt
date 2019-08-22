@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.pixplicity.easyprefs.library.Prefs
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.presenter.setting.SettingPresenter
+import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.view.SettingView
 import kotlinx.android.synthetic.main.fragment_setting.view.*
 
@@ -40,6 +42,13 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
             presenter.changeColorOn(view.switchbutton_bahasa_ing)
             presenter.changeColorOff(view.switchbutton_bahasa_indo)
         }
+
+        val alarmDaily : Boolean = Prefs.getBoolean(Constant.CONST_SWITCH_ALARM_DAILY, false)
+        if(alarmDaily){
+            presenter.changeColorOn(view.switchbutton_alarm_daily)
+        } else {
+            presenter.changeColorOff(view.switchbutton_alarm_daily)
+        }
     }
 
 
@@ -69,9 +78,13 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
 
     override fun switchDailyAlarm() {
         if (view?.switchbutton_alarm_daily?.isChecked == true) {
+            Prefs.putBoolean(Constant.CONST_SWITCH_ALARM_DAILY, true)
             context?.let { presenter.settingDailyAlarm(true, true, it) }
+            presenter.changeColorOn(view?.switchbutton_alarm_daily)
         } else {
+            Prefs.putBoolean(Constant.CONST_SWITCH_ALARM_DAILY, false)
             context?.let { presenter.settingDailyAlarm(false, false, it) }
+            presenter.changeColorOff(view?.switchbutton_alarm_daily)
         }
     }
 

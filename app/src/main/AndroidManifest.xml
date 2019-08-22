@@ -5,12 +5,17 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".utils.PrefsApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.ui.activity.main.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
+
         <receiver android:name=".widget.Favorite">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -20,8 +25,8 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/favorite_info" />
         </receiver>
-
-        <receiver android:name=".model.service.BootReceiver"
+        <receiver
+            android:name=".model.service.BootReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -30,15 +35,14 @@
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".model.service.alarmService.AlarmNotificationDailyReceiver"/>
+        <receiver android:name=".model.service.alarmService.AlarmNotificationDailyReceiver" />
 
         <activity
             android:name=".view.ui.activity.movie.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".view.ui.activity.main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".view.ui.activity.SpalshScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,12 +55,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service
-            android:name="com.redveloper.filmmadekt.model.service.widgetService.StackWidgetService"
+            android:name=".model.service.widgetService.StackWidgetService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
-
-        <service android:name=".model.service.alarmService.AlarmService"
+        <service
+            android:name=".model.service.alarmService.AlarmService"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

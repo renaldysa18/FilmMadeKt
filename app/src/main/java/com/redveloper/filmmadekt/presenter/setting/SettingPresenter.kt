@@ -40,8 +40,8 @@ class SettingPresenter(val view : SettingView.View) : SettingView.Presenter{
 
         //set Time
         val calender = Calendar.getInstance()
-        calender.set(Calendar.HOUR_OF_DAY, 21)
-        calender.set(Calendar.MINUTE, 45)
+        calender.set(Calendar.HOUR_OF_DAY, 7)
+        calender.set(Calendar.MINUTE, 0)
 
         val intent = Intent(context, AlarmNotificationDailyReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, 0, intent,0)

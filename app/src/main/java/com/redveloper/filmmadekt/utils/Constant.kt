@@ -8,5 +8,7 @@ class Constant{
         const val channelID = "channel_01"
         const val channelName = "Renaldy FILM"
         const val NOTIFICATION_ID = 1
+
+        const val CONST_SWITCH_ALARM_DAILY = "ALARMDAILY"
     }
 }

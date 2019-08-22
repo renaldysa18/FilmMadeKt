@@ -51,6 +51,7 @@ dependencies {
     implementation config.commonDependency.switchButton
     implementation config.commonDependency.easyPref
 
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation config.commonDependency.jUnitLib
     annotationProcessor config.commonDependency.roomAnnotation
     annotationProcessor config.commonDependency.glideCompiler
