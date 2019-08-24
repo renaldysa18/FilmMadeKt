@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_release_today_movie.view.*
 class ReleaseTodayMovieFragment : Fragment(), ReleaseTodayView.View {
 
     private lateinit var presenter : ReleaseTodayMoviePresenter
-    private lateinit var adapter : AdapterMovie
+    private lateinit var adapter : AdapterReleaseTodayMovie
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,8 +47,8 @@ class ReleaseTodayMovieFragment : Fragment(), ReleaseTodayView.View {
     }
 
     override fun showData(data: List<ResponMovie.Result>) {
-        view?.recyclerview_release_today_movie?.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
-        adapter = AdapterMovie(data)
+        view?.recyclerview_release_today_movie?.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
+        adapter = AdapterReleaseTodayMovie(data)
         view?.recyclerview_release_today_movie?.adapter = adapter
     }
 
