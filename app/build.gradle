@@ -52,6 +52,7 @@ dependencies {
     implementation config.commonDependency.easyPref
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:28.0.0'
     testImplementation config.commonDependency.jUnitLib
     annotationProcessor config.commonDependency.roomAnnotation
     annotationProcessor config.commonDependency.glideCompiler

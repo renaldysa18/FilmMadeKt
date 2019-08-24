@@ -13,6 +13,7 @@ import android.widget.TextView
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.view.ui.fragment.favorite.FavoriteFragment
 import com.redveloper.filmmadekt.view.ui.fragment.movie.MovieFragment
+import com.redveloper.filmmadekt.view.ui.fragment.releaseTodayMovie.ReleaseTodayMovieFragment
 import com.redveloper.filmmadekt.view.ui.fragment.setting.SettingFragment
 import com.redveloper.filmmadekt.view.ui.fragment.tvshow.TvshowFragment
 
@@ -70,6 +71,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_favorite -> {
                 moveFragment(FavoriteFragment())
                 title.text = applicationContext.resources.getString(R.string.title_favorite)
+            }
+            R.id.nav_release_today_movie -> {
+                moveFragment(ReleaseTodayMovieFragment())
+                title.text = resources.getString(R.string.today_release_movie)
             }
             R.id.nav_tools -> {
                 moveFragment(SettingFragment())
