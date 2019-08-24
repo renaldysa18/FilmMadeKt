@@ -16,6 +16,11 @@
             android:id="@+id/nav_favorite"
             android:icon="@drawable/ic_star_fill"
             android:title="@string/title_favorite" />
+
+        <item
+            android:icon="@drawable/ic_slideshow"
+            android:id="@+id/nav_release_today_movie"
+            android:title="@string/today_release_movie"/>
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_menu_manage"
