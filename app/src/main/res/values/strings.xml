@@ -72,5 +72,6 @@
     <string name="alarm">Setting Alarm</string>
     <string name="alarm_daily">Alarm Daily</string>
     <string name="today_release_movie">Today\'s Film Release</string>
+    <string name="alarm_release_today">Alarm Release Movie Today</string>
 
 </resources>

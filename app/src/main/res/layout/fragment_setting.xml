@@ -102,4 +102,29 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_setting_alarm" />
 
+
+    <TextView
+        android:id="@+id/textview_alarm_relase_movie_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/alarm_release_today"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_alarm_daily" />
+
+    <com.kyleduo.switchbutton.SwitchButton
+        android:id="@+id/switchbutton_alarm_relase_movie_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:kswBackColor="@android:color/white"
+        app:kswThumbColor="@color/colorGreen"
+        app:kswThumbMargin="6dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_alarm_daily" />
+
 </android.support.constraint.ConstraintLayout>
