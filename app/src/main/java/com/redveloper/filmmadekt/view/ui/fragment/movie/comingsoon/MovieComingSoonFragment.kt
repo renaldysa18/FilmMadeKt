@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.ui.fragment.movie.comingsoon
 
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -21,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_movie_coming_soon.view.*
 class MovieComingSoonFragment : Fragment(), MovieView.UpComing {
     private lateinit var presenter : UpComingMoviePresenter
     private lateinit var adapter : AdapterMovie
+    private lateinit var loading : ProgressDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +35,21 @@ class MovieComingSoonFragment : Fragment(), MovieView.UpComing {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = UpComingMoviePresenter(this)
+        loading = ProgressDialog(context)
+
+        showLoading()
+
         CallUpComingMovie()
+    }
+
+    override fun showLoading() {
+        loading.setMessage(context?.resources?.getString(R.string.loading))
+        loading.setCancelable(false)
+        loading.show()
+    }
+
+    override fun hideLoading() {
+        loading.dismiss()
     }
 
     override fun CallUpComingMovie() {
@@ -56,6 +72,8 @@ class MovieComingSoonFragment : Fragment(), MovieView.UpComing {
 
         view?.recyclerview_movie_comingsoon?.adapter = adapter
         view?.recyclerview_movie_comingsoon?.addOnScrollListener(CenterScrollListener())
+
+        hideLoading()
     }
 
     override fun showMessage(msg: String) {

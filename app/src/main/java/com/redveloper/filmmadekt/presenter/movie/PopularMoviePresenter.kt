@@ -33,6 +33,7 @@ class PopularMoviePresenter(val view: MovieView.Popular) : MovieView.PopularPres
                         }
 
                         override fun onError(e: Throwable) {
+                            view.hideLoading()
                             view.showMessage(e.localizedMessage)
                         }
                     }

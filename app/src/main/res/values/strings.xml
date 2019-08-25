@@ -74,5 +74,6 @@
     <string name="today_release_movie">Today\'s Film Release</string>
     <string name="alarm_release_today">Alarm Release Movie Today</string>
     <string name="no_connection">No Connection</string>
+    <string name="loading">Please wait. . .</string>
 
 </resources>

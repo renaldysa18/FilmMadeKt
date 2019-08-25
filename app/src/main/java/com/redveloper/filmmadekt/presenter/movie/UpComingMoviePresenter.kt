@@ -34,6 +34,7 @@ class UpComingMoviePresenter(val view : MovieView.UpComing) : MovieView.UpComing
                         }
 
                         override fun onError(e: Throwable) {
+                            view.hideLoading()
                             view.showMessage(e.localizedMessage)
                         }
                     }

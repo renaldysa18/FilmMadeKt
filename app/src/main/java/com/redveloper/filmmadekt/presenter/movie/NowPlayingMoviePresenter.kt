@@ -33,6 +33,7 @@ class NowPlayingMoviePresenter(val view: MovieView.NowPlaying) : MovieView.NowPl
                         }
 
                         override fun onError(e: Throwable) {
+                            view.hideLoading()
                             view.showMessage(e.localizedMessage)
                         }
                     }

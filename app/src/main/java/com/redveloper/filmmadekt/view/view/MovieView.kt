@@ -8,6 +8,8 @@ interface MovieView{
         fun callMovie()
         fun showData(data : List<ResponMovie.Result>?)
         fun showMessage(msg : String)
+        fun showLoading()
+        fun hideLoading()
     }
 
     interface NowPlayingPresenter{
@@ -22,6 +24,8 @@ interface MovieView{
         fun CallUpComingMovie()
         fun showData(data: List<ResponMovie.Result>?)
         fun showMessage(msg : String)
+        fun showLoading()
+        fun hideLoading()
     }
 
     interface UpComingPresenter{
@@ -36,6 +40,8 @@ interface MovieView{
         fun CallPopularMovie()
         fun showData(data : List<ResponMovie.Result>?)
         fun showMessage(msg : String)
+        fun showLoading()
+        fun hideLoading()
     }
 
     interface PopularPresenter{

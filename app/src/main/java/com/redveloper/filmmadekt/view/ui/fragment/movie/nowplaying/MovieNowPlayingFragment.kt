@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.ui.fragment.movie.nowplaying
 
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ class MovieNowPlayingFragment : Fragment(), MovieView.NowPlaying {
 
     private lateinit var presenter : NowPlayingMoviePresenter
     private lateinit var adapter : AdapterMovie
+    private lateinit var loading : ProgressDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +36,21 @@ class MovieNowPlayingFragment : Fragment(), MovieView.NowPlaying {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = NowPlayingMoviePresenter(this)
+        loading = ProgressDialog(context)
+
+        showLoading()
+
         callMovie()
+    }
+
+    override fun showLoading() {
+        loading.setMessage(context?.resources?.getString(R.string.loading))
+        loading.setCancelable(false)
+        loading.show()
+    }
+
+    override fun hideLoading() {
+        loading.dismiss()
     }
 
     override fun callMovie() {
@@ -49,6 +65,8 @@ class MovieNowPlayingFragment : Fragment(), MovieView.NowPlaying {
         adapter = AdapterMovie(data)
         view?.recyclerview_movie_nowplaying?.adapter = adapter
         view?.recyclerview_movie_nowplaying?.addOnScrollListener(CenterScrollListener())
+
+        hideLoading()
     }
 
     override fun showMessage(msg: String) {

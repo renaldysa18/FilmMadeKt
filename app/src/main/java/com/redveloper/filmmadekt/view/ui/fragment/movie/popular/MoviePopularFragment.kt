@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.ui.fragment.movie.popular
 
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +23,7 @@ class MoviePopularFragment : Fragment(), MovieView.Popular {
 
     private lateinit var presenter : PopularMoviePresenter
     private lateinit var adapter : AdapterMovie
+    private lateinit var loading : ProgressDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,8 +36,21 @@ class MoviePopularFragment : Fragment(), MovieView.Popular {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = PopularMoviePresenter(this)
-        CallPopularMovie()
+        loading = ProgressDialog(context)
 
+        showLoading()
+
+        CallPopularMovie()
+    }
+
+    override fun showLoading() {
+        loading.setMessage(context?.resources?.getString(R.string.loading))
+        loading.setCancelable(false)
+        loading.show()
+    }
+
+    override fun hideLoading() {
+        loading.dismiss()
     }
 
     override fun CallPopularMovie() {
@@ -57,6 +72,7 @@ class MoviePopularFragment : Fragment(), MovieView.Popular {
         view?.recyclerview_movie_popular?.adapter = adapter
         view?.recyclerview_movie_popular?.addOnScrollListener(CenterScrollListener())
 
+        hideLoading()
     }
 
     override fun showMessage(msg: String) {
