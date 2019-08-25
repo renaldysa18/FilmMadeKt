@@ -30,10 +30,14 @@ class ReleaseTodayMoviePresenter(val view : ReleaseTodayView.View) : ReleaseToda
                         override fun onNext(t: Response<ResponMovie>) {
                             if(t.code() == 200){
                                 t.body()?.results?.let { view.showData(it) }
+                            } else {
+                                view.hideLoading()
+                                view.showMessage("Error "+t.code())
                             }
                         }
 
                         override fun onError(e: Throwable) {
+                            view.hideLoading()
                             view.showMessage(e.localizedMessage)
                         }
                     }

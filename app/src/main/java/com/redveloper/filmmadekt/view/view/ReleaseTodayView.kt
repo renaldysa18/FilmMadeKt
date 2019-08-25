@@ -7,6 +7,8 @@ interface ReleaseTodayView{
         fun callReleaseToday(date : String)
         fun showData(data : List<ResponMovie.Result>)
         fun showMessage(msg : String)
+        fun showLoading()
+        fun hideLoading()
     }
 
     interface Presenter{

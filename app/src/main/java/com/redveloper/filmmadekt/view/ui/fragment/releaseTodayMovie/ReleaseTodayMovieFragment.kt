@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.ui.fragment.releaseTodayMovie
 
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ class ReleaseTodayMovieFragment : Fragment(), ReleaseTodayView.View {
 
     private lateinit var presenter : ReleaseTodayMoviePresenter
     private lateinit var adapter : AdapterReleaseTodayMovie
+    private lateinit var loading : ProgressDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,10 +34,21 @@ class ReleaseTodayMovieFragment : Fragment(), ReleaseTodayView.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         presenter = ReleaseTodayMoviePresenter(this)
+        loading = ProgressDialog(context)
 
+        showLoading()
         callReleaseToday(presenter.getDateToday())
+    }
+
+    override fun showLoading() {
+        loading.setMessage(context?.resources?.getString(R.string.loading))
+        loading.setCancelable(false)
+        loading.show()
+    }
+
+    override fun hideLoading() {
+        loading.dismiss()
     }
 
     override fun callReleaseToday(date : String) {
@@ -50,6 +63,8 @@ class ReleaseTodayMovieFragment : Fragment(), ReleaseTodayView.View {
         view?.recyclerview_release_today_movie?.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
         adapter = AdapterReleaseTodayMovie(data)
         view?.recyclerview_release_today_movie?.adapter = adapter
+
+        hideLoading()
     }
 
     override fun showMessage(msg: String) {
