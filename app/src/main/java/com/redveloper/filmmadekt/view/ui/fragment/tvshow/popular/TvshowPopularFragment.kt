@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.ui.fragment.tvshow.popular
 
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_tvshow_popular.view.*
 class TvshowPopularFragment : Fragment(), TvshowView.Popular {
     private lateinit var adapter : TvShowAdapter
     private lateinit var presenter : PopularTvShowPresenter
+    private lateinit var loading : ProgressDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +34,20 @@ class TvshowPopularFragment : Fragment(), TvshowView.Popular {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = PopularTvShowPresenter(this)
+        loading = ProgressDialog(context)
+
+        showLoading()
         callTvShowPopular()
+    }
+
+    override fun showLoading() {
+        loading.setMessage(context?.resources?.getString(R.string.loading))
+        loading.setCancelable(false)
+        loading.show()
+    }
+
+    override fun hideLoading() {
+        loading.dismiss()
     }
 
     override fun callTvShowPopular() {
@@ -47,6 +62,7 @@ class TvshowPopularFragment : Fragment(), TvshowView.Popular {
         adapter = TvShowAdapter(data)
         view?.recyclerview_popular_tvshow?.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         view?.recyclerview_popular_tvshow?.adapter = adapter
+        hideLoading()
     }
 
     override fun showMessage(msg: String) {

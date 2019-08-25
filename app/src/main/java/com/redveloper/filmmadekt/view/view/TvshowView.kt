@@ -7,6 +7,8 @@ interface TvshowView{
         fun callTvShowPopular()
         fun showData(data : List<ResponTvShow.Result>?)
         fun showMessage(msg : String)
+        fun showLoading()
+        fun hideLoading()
     }
     interface PopularPresenter{
         fun getPopularTvShow(
@@ -19,6 +21,8 @@ interface TvshowView{
         fun callTvShowTopRated()
         fun showData(data : List<ResponTvShow.Result>?)
         fun showMessage(msg : String)
+        fun showLoading()
+        fun hideLoading()
     }
     interface TopRatedPresenter{
         fun getTopRatedTvShow(

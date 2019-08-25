@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.view.ui.fragment.tvshow.toprated
 
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -21,6 +22,8 @@ class TvshowTopRatedFragment : Fragment(), TvshowView.TopRated {
 
     private lateinit var adapter : TvShowAdapter
     private lateinit var presenter: TopRatedTvShowPresenter
+    private lateinit var loading : ProgressDialog
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,7 +35,20 @@ class TvshowTopRatedFragment : Fragment(), TvshowView.TopRated {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = TopRatedTvShowPresenter(this)
+        loading = ProgressDialog(context)
+
+        showLoading()
         callTvShowTopRated()
+    }
+
+    override fun showLoading() {
+        loading.setMessage(context?.resources?.getString(R.string.loading))
+        loading.setCancelable(false)
+        loading.show()
+    }
+
+    override fun hideLoading() {
+        loading.dismiss()
     }
 
     override fun callTvShowTopRated() {
@@ -47,6 +63,7 @@ class TvshowTopRatedFragment : Fragment(), TvshowView.TopRated {
         view?.recyclerview_toprated_tvshow?.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         adapter = TvShowAdapter(data)
         view?.recyclerview_toprated_tvshow?.adapter = adapter
+        hideLoading()
     }
 
     override fun showMessage(msg: String) {

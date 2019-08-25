@@ -34,6 +34,7 @@ class PopularTvShowPresenter(val view : TvshowView.Popular) : TvshowView.Popular
                         }
 
                         override fun onError(e: Throwable) {
+                            view.hideLoading()
                             view.showMessage(e.localizedMessage)
                         }
                     }

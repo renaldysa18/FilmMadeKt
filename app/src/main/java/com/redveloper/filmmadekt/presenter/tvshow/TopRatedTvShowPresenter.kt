@@ -33,6 +33,7 @@ class TopRatedTvShowPresenter(val view : TvshowView.TopRated) : TvshowView.TopRa
                         }
 
                         override fun onError(e: Throwable) {
+                            view.hideLoading()
                             view.showMessage(e.localizedMessage)
                         }
                     }
