@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.fragment.MovieFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_movie_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/movie" />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

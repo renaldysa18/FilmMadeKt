@@ -8,8 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.redveloper.providerfilm.R
+import com.redveloper.providerfilm.view.MainView
 
-class MovieFragment : Fragment() {
+class MovieFragment : Fragment(), MainView.ViewMovie {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,5 +20,15 @@ class MovieFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_movie, container, false)
     }
 
+    override fun showData() {
 
+    }
+
+    override fun showShimmer() {
+
+    }
+
+    override fun hideShimmer() {
+
+    }
 }
