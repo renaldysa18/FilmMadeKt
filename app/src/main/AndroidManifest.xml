@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.redveloper.filmmadekt">
 
-    <uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,9 +14,11 @@
         android:roundIcon="@mipmap/ic_logo_movie"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.ui.activity.main.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+        <activity
+            android:name=".view.ui.activity.main.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <receiver android:name=".widget.Favorite">
             <intent-filter>
@@ -43,9 +45,10 @@
         <activity
             android:name=".view.ui.activity.movie.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".view.ui.activity.SpalshScreenActivity">
+        <activity android:name=".view.ui.activity.SpalshScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,6 +56,8 @@
             </intent-filter>
         </activity>
         <activity
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:name=".view.ui.activity.tvshow.TvshowDetailActivity"
             android:label="@string/title_activity_tvshow_detail"
             android:theme="@style/AppTheme.NoActionBar" />
