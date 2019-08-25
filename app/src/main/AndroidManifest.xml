@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
 
-    <permission android:name="com.redveloper.filmmadekt" android:protectionLevel="normal" />
+    <permission android:name="com.redveloper.filmmadekt.READ_DATABASE" android:protectionLevel="normal" />
 
     <application
         android:name=".utils.PrefsApplication"
@@ -64,6 +64,12 @@
             android:name=".view.ui.activity.tvshow.TvshowDetailActivity"
             android:label="@string/title_activity_tvshow_detail"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name="com.redveloper.filmmadekt.provider.ProviderService"
+            android:authorities="com.redveloper.filmmadekt"
+            android:exported="true"
+            android:permission="com.redveloper.filmmaddekt.provider.READ_DATABASE"/>
 
         <service
             android:name=".model.service.widgetService.StackWidgetService"
