@@ -5,14 +5,14 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.SystemClock
 import com.kyleduo.switchbutton.SwitchButton
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.service.alarmService.AlarmNotificationDailyReceiver
+import com.redveloper.filmmadekt.model.service.alarmService.AlarmNotificationReleaseTodayReceiver
 import com.redveloper.filmmadekt.view.view.SettingView
 import java.util.*
 
-class SettingPresenter(val view : SettingView.View) : SettingView.Presenter{
+class SettingPresenter(val view: SettingView.View) : SettingView.Presenter {
     override fun changeColorOn(switchbutton: SwitchButton?) {
         switchbutton?.setCheckedNoEvent(true)
         switchbutton?.setThumbColorRes(android.R.color.white)
@@ -31,12 +31,12 @@ class SettingPresenter(val view : SettingView.View) : SettingView.Presenter{
         val config = android.content.res.Configuration()
         config.locale = myLocale
         context?.resources?.updateConfiguration(config, context.resources?.displayMetrics)
-        (context as Activity)?.finish()
-        (context as Activity)?.startActivity((context as Activity)?.intent)
+        (context as Activity).finish()
+        context.startActivity(context.intent)
     }
 
     override fun settingDailyAlarm(isNotif: Boolean, isRepeat: Boolean, context: Context) {
-        val alarmManager : AlarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val alarmManager: AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         //set Time
         val calender = Calendar.getInstance()
@@ -47,17 +47,54 @@ class SettingPresenter(val view : SettingView.View) : SettingView.Presenter{
         calender.set(Calendar.SECOND, 0)
         calender.set(Calendar.MILLISECOND, 0)
 
-        if(calenderDaily.after(calender)){
+        if (calenderDaily.after(calender)) {
             calender.add(Calendar.DATE, 1)
         }
 
         val intent = Intent(context, AlarmNotificationDailyReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(context, 0, intent,0)
+        val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
 
-        if(isRepeat){
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calender.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
+        if (isRepeat) {
+            alarmManager.setRepeating(
+                AlarmManager.RTC_WAKEUP,
+                calender.timeInMillis,
+                AlarmManager.INTERVAL_DAY,
+                pendingIntent
+            )
         } else {
             alarmManager.cancel(pendingIntent)
+        }
+    }
+
+    override fun settingReleaseTodayMovieAlarm(isNotif: Boolean, isRepeat: Boolean, context: Context) {
+        val alarmManager: AlarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+        //set Time
+        val calender = Calendar.getInstance()
+        val calenderDaily = Calendar.getInstance()
+
+        calender.set(Calendar.HOUR_OF_DAY, 8)
+        calender.set(Calendar.MINUTE, 0)
+        calender.set(Calendar.SECOND, 0)
+        calender.set(Calendar.MILLISECOND, 0)
+
+        if (calenderDaily.after(calender)) {
+            calender.add(Calendar.DATE, 1)
+        }
+
+        val intent = Intent(context, AlarmNotificationReleaseTodayReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+
+        if (isRepeat) {
+            alarmManager.setRepeating(
+                AlarmManager.RTC_WAKEUP,
+                calender.timeInMillis,
+                AlarmManager.INTERVAL_DAY,
+                pendingIntent
+            )
+        } else {
+            alarmManager.cancel(pendingIntent)
+//            alarmManager.set(AlarmManager.RTC_WAKEUP, SystemClock.elapsedRealtime(), pendingIntent)
         }
     }
 }

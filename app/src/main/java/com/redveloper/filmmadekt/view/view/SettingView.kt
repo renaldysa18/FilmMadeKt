@@ -16,6 +16,7 @@ interface SettingView{
         fun changeColorOff(switchbutton: SwitchButton?)
         fun changeLanguange(context : Context?, lang : String)
         fun settingDailyAlarm(isNotif : Boolean, isRepeat : Boolean, context: Context)
+        fun settingReleaseTodayMovieAlarm(isNotif : Boolean, isRepeat : Boolean, context: Context)
     }
 
 }

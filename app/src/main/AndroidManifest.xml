@@ -36,6 +36,7 @@
             </intent-filter>
         </receiver>
         <receiver android:name=".model.service.alarmService.AlarmNotificationDailyReceiver" />
+        <receiver android:name=".model.service.alarmService.AlarmNotificationReleaseTodayReceiver" />
 
         <activity
             android:name=".view.ui.activity.movie.MovieDetailActivity"

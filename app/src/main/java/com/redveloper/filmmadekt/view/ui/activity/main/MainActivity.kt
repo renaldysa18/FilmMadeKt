@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.widget.TextView
 import com.redveloper.filmmadekt.R
+import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.ui.fragment.favorite.FavoriteFragment
 import com.redveloper.filmmadekt.view.ui.fragment.movie.MovieFragment
 import com.redveloper.filmmadekt.view.ui.fragment.releaseTodayMovie.ReleaseTodayMovieFragment
@@ -41,10 +42,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         navView.setNavigationItemSelectedListener(this)
 
+        //from notif
+        val extra = intent.extras
+        if (extra != null && extra.getBoolean(Constant.CONST_NOTIF_RELEASE_MOVIE_TODAY)) {
+            moveFragment(ReleaseTodayMovieFragment())
+            title.text = resources.getString(R.string.today_release_movie)
+        } else {
+            //default fragment
+            moveFragment(MovieFragment())
+            title.text = applicationContext.resources.getString(R.string.title_movie)
+        }
 
-        //default fragment
-        moveFragment(MovieFragment())
-        title.text = applicationContext.resources.getString(R.string.title_movie)
 
     }
 

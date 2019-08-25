@@ -88,9 +88,11 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
         if(view?.switchbutton_alarm_relase_movie_today?.isChecked == true){
             Prefs.putBoolean(Constant.CONST_SWITCH_ALARM_RELEASE_MOVIE_TODAY, true)
             presenter.changeColorOn(view?.switchbutton_alarm_relase_movie_today)
+            context?.let { presenter.settingReleaseTodayMovieAlarm(true, true, it) }
         } else {
             Prefs.putBoolean(Constant.CONST_SWITCH_ALARM_RELEASE_MOVIE_TODAY, false)
             presenter.changeColorOff(view?.switchbutton_alarm_relase_movie_today)
+            context?.let { presenter.settingReleaseTodayMovieAlarm(false, false, it) }
         }
     }
 
