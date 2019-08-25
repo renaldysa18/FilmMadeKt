@@ -10,5 +10,7 @@ class Constant{
         const val NOTIFICATION_ID = 1
 
         const val CONST_SWITCH_ALARM_DAILY = "ALARMDAILY"
+
+        const val CONST_SWITCH_ALARM_RELEASE_MOVIE_TODAY = "ALARMRELEASEMOVIETODAY"
     }
 }

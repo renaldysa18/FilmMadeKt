@@ -8,6 +8,7 @@ interface SettingView{
         fun switchIndo()
         fun switchEnglish()
         fun switchDailyAlarm()
+        fun switchReleaseMovieToday()
     }
 
     interface Presenter{

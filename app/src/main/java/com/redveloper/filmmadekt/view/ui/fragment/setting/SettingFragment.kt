@@ -33,6 +33,7 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
         view.switchbutton_bahasa_indo.setOnClickListener(this)
         view.switchbutton_bahasa_ing.setOnClickListener(this)
         view.switchbutton_alarm_daily.setOnClickListener(this)
+        view.switchbutton_alarm_relase_movie_today.setOnClickListener(this)
 
         val languange = resources.configuration.locale.language
         if (languange.equals("in")) {
@@ -48,6 +49,13 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
             presenter.changeColorOn(view.switchbutton_alarm_daily)
         } else {
             presenter.changeColorOff(view.switchbutton_alarm_daily)
+        }
+
+        val alarmReleaseMovieToday : Boolean = Prefs.getBoolean(Constant.CONST_SWITCH_ALARM_RELEASE_MOVIE_TODAY, false)
+        if(alarmReleaseMovieToday){
+            presenter.changeColorOn(view.switchbutton_alarm_relase_movie_today)
+        } else {
+            presenter.changeColorOff(view.switchbutton_alarm_relase_movie_today)
         }
     }
 
@@ -76,6 +84,10 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
         }
     }
 
+    override fun switchReleaseMovieToday() {
+
+    }
+
     override fun switchDailyAlarm() {
         if (view?.switchbutton_alarm_daily?.isChecked == true) {
             Prefs.putBoolean(Constant.CONST_SWITCH_ALARM_DAILY, true)
@@ -93,6 +105,7 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
             R.id.switchbutton_bahasa_indo -> switchIndo()
             R.id.switchbutton_bahasa_ing -> switchEnglish()
             R.id.switchbutton_alarm_daily -> switchDailyAlarm()
+            R.id.switchbutton_alarm_relase_movie_today -> switchReleaseMovieToday()
         }
     }
 }
