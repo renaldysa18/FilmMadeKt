@@ -85,7 +85,11 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
     }
 
     override fun switchReleaseMovieToday() {
-
+        if(view?.switchbutton_alarm_relase_movie_today?.isChecked == true){
+            presenter.changeColorOn(view?.switchbutton_alarm_relase_movie_today)
+        } else {
+            presenter.changeColorOff(view?.switchbutton_alarm_relase_movie_today)
+        }
     }
 
     override fun switchDailyAlarm() {
