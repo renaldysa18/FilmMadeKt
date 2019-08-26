@@ -41,6 +41,8 @@ dependencies {
     implementation config.commonDependency.recyclerview
     implementation config.commonDependency.glide
     implementation config.commonDependency.shimmer
+    implementation config.commonDependency.gson
+
 
     testImplementation config.commonDependency.jUnitLib
     annotationProcessor config.commonDependency.glideCompiler

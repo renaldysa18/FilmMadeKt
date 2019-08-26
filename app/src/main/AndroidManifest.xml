@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.redveloper.filmmadekt">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,12 +17,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_logo_movie"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name=".view.ui.activity.main.MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name=".widget.Favorite">
             <intent-filter>
@@ -66,10 +68,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
-            android:name="com.redveloper.filmmadekt.provider.ProviderService"
+            android:name=".provider.ProviderService"
             android:authorities="com.redveloper.filmmadekt"
             android:exported="true"
-            android:permission="com.redveloper.filmmaddekt.provider.READ_DATABASE"/>
+            android:readPermission="com.redveloper.filmmadekt.READ_DATABASE"/>
 
         <service
             android:name=".model.service.widgetService.StackWidgetService"

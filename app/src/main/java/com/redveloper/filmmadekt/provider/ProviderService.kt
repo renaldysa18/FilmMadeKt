@@ -12,12 +12,12 @@ import java.util.*
 
 class ProviderService : ContentProvider() {
 
-    private val AUTORITY = context.packageName
+    private val AUTORITY = "com.redveloper.filmmadekt"
     private val MOVIE = 1
     private val TVSHOW = 2
     private var urimatcher: UriMatcher = UriMatcher(UriMatcher.NO_MATCH)
-    private val MOVIE_TABLE = ResponMovie.Result::class.simpleName
-    private val TVSHOW_TABLE = ResponTvShow.Result::class.simpleName
+    private val MOVIE_TABLE = ResponMovie.Result::class.java.simpleName
+    private val TVSHOW_TABLE = ResponTvShow.Result::class.java.simpleName
 
     init {
         urimatcher.addURI(AUTORITY, MOVIE_TABLE, MOVIE)
