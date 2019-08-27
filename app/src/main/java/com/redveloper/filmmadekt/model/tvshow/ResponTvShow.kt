@@ -2,6 +2,7 @@ package com.redveloper.filmmadekt.model.tvshow
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.content.ContentValues
 import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -58,5 +59,21 @@ class ResponTvShow{
         @SerializedName("poster_path")
         @Expose
         val poster_path : String
-    ) : Parcelable
+    ) : Parcelable{
+        fun contentValue() : ContentValues{
+            var contentValues = ContentValues()
+            contentValues.put("original_name", orignal_name)
+            contentValues.put("name", name)
+            contentValues.put("popularity", popularity)
+            contentValues.put("vote_count", vote_count)
+            contentValues.put("first_air_date", first_air_date)
+            contentValues.put("backdrop_path", backdrop_path)
+            contentValues.put("original_languange", original_language)
+            contentValues.put("id", id)
+            contentValues.put("vote_average", vote_average)
+            contentValues.put("overview", overview)
+            contentValues.put("poster_path", poster_path)
+            return contentValues
+        }
+    }
 }
