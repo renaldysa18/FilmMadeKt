@@ -54,7 +54,7 @@ class MovieFragment : Fragment(), MainView.ViewMovie, SwipeRefreshLayout.OnRefre
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
-    override fun showData(data: ArrayList<ResponMovie.Result>) {
+    override fun showData(data: ArrayList<ResponMovie.ResultMovie>) {
         view?.recyclerview_movie_fragment?.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         adapter = MovieAdapter(data)
         view?.recyclerview_movie_fragment?.adapter = adapter

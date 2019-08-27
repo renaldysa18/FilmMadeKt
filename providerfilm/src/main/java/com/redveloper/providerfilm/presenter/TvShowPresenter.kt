@@ -8,17 +8,18 @@ import android.net.Uri
 import android.os.RemoteException
 import android.util.Log
 import com.redveloper.providerfilm.model.ResponMovie
+import com.redveloper.providerfilm.model.ResponTvShow
 import com.redveloper.providerfilm.view.MainView
 
-class MoviePresenter(val context: Context, val view: MainView.ViewMovie) : MainView.PresenterMovie {
+class TvShowPresenter(val context: Context, val view: MainView.ViewTvShow) : MainView.PresenterTvShow {
     private val AUTHORITY = "com.redveloper.filmmadekt"
-    private val MOVIE_TABLE = ResponMovie.ResultMovie::class.java.simpleName as String
+    private val TVSHOW_TABLE = ResponTvShow.ResultTvShow::class.java.simpleName as String
     private val ContentUri: Uri = Uri.parse(
-        "content://" + AUTHORITY + "/" + MOVIE_TABLE
+        "content://" + AUTHORITY + "/" + TVSHOW_TABLE
     )
 
     @SuppressLint("Recycle")
-    override fun getDataMovie() {
+    override fun getDataTvShow() {
         val contentProviderClient: ContentProviderClient =
             context.contentResolver.acquireContentProviderClient(ContentUri)
         try {
@@ -26,19 +27,17 @@ class MoviePresenter(val context: Context, val view: MainView.ViewMovie) : MainV
             val cursor = contentProviderClient.query(
                 ContentUri,
                 arrayOf(
-                    ResponMovie.ResultMovie().VOTE_COUNT,
-                    ResponMovie.ResultMovie().ID,
-                    ResponMovie.ResultMovie().VIDEO,
-                    ResponMovie.ResultMovie().VOTE_AVERAGE,
-                    ResponMovie.ResultMovie().TITLE,
-                    ResponMovie.ResultMovie().POPULARITY,
-                    ResponMovie.ResultMovie().POSTER_PATH,
-                    ResponMovie.ResultMovie().ORIGINAL_LANGUANGE,
-                    ResponMovie.ResultMovie().ORIGINAL_TITLE,
-                    ResponMovie.ResultMovie().BACKDROP_PATH,
-                    ResponMovie.ResultMovie().ADULT,
-                    ResponMovie.ResultMovie().OVERVIEW,
-                    ResponMovie.ResultMovie().RELEASE_DATE
+                    ResponTvShow.ResultTvShow().ORIGINAL_NAME,
+                    ResponTvShow.ResultTvShow().NAME,
+                    ResponTvShow.ResultTvShow().POPULARITY,
+                    ResponTvShow.ResultTvShow().VOTE_COUNT,
+                    ResponTvShow.ResultTvShow().FIRST_AIR_DATE,
+                    ResponTvShow.ResultTvShow().BACKDROP_PATH,
+                    ResponTvShow.ResultTvShow().ORIGINAL_LANGUANGE,
+                    ResponTvShow.ResultTvShow().ID,
+                    ResponTvShow.ResultTvShow().VOTE_AVERAGE,
+                    ResponTvShow.ResultTvShow().OVERVIEW,
+                    ResponTvShow.ResultTvShow().POSTER_PATH
                 ),
                 null,
                 null,
@@ -46,7 +45,6 @@ class MoviePresenter(val context: Context, val view: MainView.ViewMovie) : MainV
                 null
             )!!
             assert(cursor != null)
-            Log.i("oioioioi",cursor.count.toString())
             if (cursor.count > 0)
                 view.showData(convertData(cursor))
             else
@@ -57,10 +55,10 @@ class MoviePresenter(val context: Context, val view: MainView.ViewMovie) : MainV
         }
     }
 
-    override fun convertData(cursor: Cursor): ArrayList<ResponMovie.ResultMovie> {
-        var items: ArrayList<ResponMovie.ResultMovie> = ArrayList()
+    override fun convertData(cursor: Cursor): ArrayList<ResponTvShow.ResultTvShow> {
+        var items: ArrayList<ResponTvShow.ResultTvShow> = ArrayList()
         while (cursor.moveToNext()) {
-            val data = ResponMovie.ResultMovie(cursor)
+            val data = ResponTvShow.ResultTvShow(cursor)
             items.add(data)
         }
         return items

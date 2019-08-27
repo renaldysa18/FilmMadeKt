@@ -11,7 +11,7 @@ import kotlinx.android.parcel.Parcelize
 class ResponMovie {
     @SerializedName("results")
     @Expose
-    var results: List<Result>? = null
+    var results: List<ResultMovie>? = null
     @SerializedName("page")
     @Expose
     var page: Int? = 0
@@ -36,7 +36,7 @@ class ResponMovie {
 
     @Entity(tableName = "moviedb")
     @Parcelize
-    data class Result(
+    data class ResultMovie(
         @SerializedName("vote_count")
         @Expose
         var vote_count : Int? = 0,

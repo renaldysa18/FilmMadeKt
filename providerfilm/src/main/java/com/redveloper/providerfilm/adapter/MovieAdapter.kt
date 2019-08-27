@@ -9,7 +9,7 @@ import com.redveloper.providerfilm.R
 import com.redveloper.providerfilm.model.ResponMovie
 import kotlinx.android.synthetic.main.view_list_film.view.*
 
-class MovieAdapter(val items : ArrayList<ResponMovie.Result>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>(){
+class MovieAdapter(val items : ArrayList<ResponMovie.ResultMovie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         return ViewHolder(
@@ -26,7 +26,7 @@ class MovieAdapter(val items : ArrayList<ResponMovie.Result>) : RecyclerView.Ada
     }
 
     class ViewHolder(itemsView : View) : RecyclerView.ViewHolder(itemsView){
-        fun binding(data: ResponMovie.Result) {
+        fun binding(data: ResponMovie.ResultMovie) {
             Glide.with(itemView.context)
                 .load(itemView.context.resources.getString(R.string.BASE_IMAGE)+data.POSTER_PATH)
                 .into(itemView.imgvListFilm)
