@@ -12,10 +12,10 @@ import com.redveloper.filmmadekt.view.view.FavoriteView
 
 class FavoritePresenter : FavoriteView.Presenter{
 
-    private var movieResult : List<ResponMovie.Result>? = ArrayList()
-    private var tvResult : List<ResponTvShow.Result>? = ArrayList()
+    private var movieResult : List<ResponMovie.ResultMovie>? = ArrayList()
+    private var tvResult : List<ResponTvShow.ResultTvShow>? = ArrayList()
 
-    override fun getFavoriteMovie(context: Context) : List<ResponMovie.Result> {
+    override fun getFavoriteMovie(context: Context) : List<ResponMovie.ResultMovie> {
         val data = AppDatabase.getInstance(context).movieDao().getAllMovie()
         if(!data.isNullOrEmpty()){
             this.movieResult = data
@@ -26,13 +26,13 @@ class FavoritePresenter : FavoriteView.Presenter{
         }
     }
 
-    override fun toDetailMovie(context: Context, data: ResponMovie.Result) {
+    override fun toDetailMovie(context: Context, data: ResponMovie.ResultMovie) {
         val intent : Intent = Intent(context, MovieDetailActivity::class.java)
         intent.putExtra(Constant.dataMovie, data)
         context.startActivity(intent)
     }
 
-    override fun getFavoriteTvShow(context: Context) : List<ResponTvShow.Result> {
+    override fun getFavoriteTvShow(context: Context) : List<ResponTvShow.ResultTvShow> {
         val data = AppDatabase.getInstance(context).tvshowDao().getAllTvshow()
         if(!data.isNullOrEmpty()){
             this.tvResult = data
@@ -43,7 +43,7 @@ class FavoritePresenter : FavoriteView.Presenter{
         }
     }
 
-    override fun toDetailTvShow(context: Context, data: ResponTvShow.Result) {
+    override fun toDetailTvShow(context: Context, data: ResponTvShow.ResultTvShow) {
         val intent = Intent(context, TvshowDetailActivity::class.java)
         intent.putExtra(Constant.dataTvShow, data)
         context.startActivity(intent)

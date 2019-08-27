@@ -59,7 +59,7 @@ class ReleaseTodayMovieFragment : Fragment(), ReleaseTodayView.View {
         }
     }
 
-    override fun showData(data: List<ResponMovie.Result>) {
+    override fun showData(data: List<ResponMovie.ResultMovie>) {
         view?.recyclerview_release_today_movie?.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
         adapter = AdapterReleaseTodayMovie(data)
         view?.recyclerview_release_today_movie?.adapter = adapter

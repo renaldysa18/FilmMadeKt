@@ -12,7 +12,7 @@ import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.ui.activity.tvshow.TvshowDetailActivity
 import kotlinx.android.synthetic.main.list_item_tvshow.view.*
 
-class TvShowAdapter(val items : List<ResponTvShow.Result>?) : RecyclerView.Adapter<TvShowAdapter.ViewHolder>(){
+class TvShowAdapter(val items : List<ResponTvShow.ResultTvShow>?) : RecyclerView.Adapter<TvShowAdapter.ViewHolder>(){
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(
@@ -34,9 +34,9 @@ class TvShowAdapter(val items : List<ResponTvShow.Result>?) : RecyclerView.Adapt
     }
 
     class ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
-        private lateinit var dataGlobal : ResponTvShow.Result
+        private lateinit var dataGlobal : ResponTvShow.ResultTvShow
 
-        fun binding(get: ResponTvShow.Result?) {
+        fun binding(get: ResponTvShow.ResultTvShow?) {
             Glide.with(itemView.context)
                 .load(itemView.context.resources.getString(R.string.BASE_IMAGE) + get?.poster_path)
                 .into(itemView.imageview_list_tvshow)
@@ -62,7 +62,7 @@ class TvShowAdapter(val items : List<ResponTvShow.Result>?) : RecyclerView.Adapt
             toDetailTvShow(this.dataGlobal)
         }
 
-        private fun toDetailTvShow(data: ResponTvShow.Result) {
+        private fun toDetailTvShow(data: ResponTvShow.ResultTvShow) {
             val intent = Intent(itemView.context, TvshowDetailActivity::class.java)
             intent.putExtra(Constant.dataTvShow, data)
             itemView.context.startActivity(intent)

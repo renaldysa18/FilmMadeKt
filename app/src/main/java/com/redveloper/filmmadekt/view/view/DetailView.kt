@@ -28,7 +28,7 @@ interface DetailView{
     interface PresenterMovie{
         fun extractData(
             context: Context,
-            data: ResponMovie.Result
+            data: ResponMovie.ResultMovie
         )
         fun insertFavorite(
             context: Context
@@ -63,7 +63,7 @@ interface DetailView{
     interface PresenterTvshow{
         fun extractData(
             context: Context,
-            data : ResponTvShow.Result
+            data : ResponTvShow.ResultTvShow
         )
         fun insertFavorite(
             context: Context

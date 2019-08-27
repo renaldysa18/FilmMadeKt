@@ -19,11 +19,11 @@ class ResponTvShow{
     var total_pages : Int? = 0
     @SerializedName("results")
     @Expose
-    var results : List<Result>? = null
+    var results : List<ResultTvShow>? = null
 
     @Entity(tableName = "tvshowdb")
     @Parcelize
-    data class Result(
+    data class ResultTvShow(
         @SerializedName("original_name")
         @Expose
         val orignal_name : String,

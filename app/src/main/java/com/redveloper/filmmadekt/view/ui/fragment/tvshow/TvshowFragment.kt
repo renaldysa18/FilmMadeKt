@@ -97,7 +97,7 @@ class TvshowFragment : Fragment(), MainView.TvShow, View.OnClickListener{
         progress.dismiss()
     }
 
-    override fun showData(data: List<ResponTvShow.Result>) {
+    override fun showData(data: List<ResponTvShow.ResultTvShow>) {
         changeLayout()
 
         adapter = TvShowAdapter(data)

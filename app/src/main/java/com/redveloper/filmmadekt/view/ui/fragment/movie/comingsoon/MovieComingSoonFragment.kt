@@ -62,7 +62,7 @@ class MovieComingSoonFragment : Fragment(), MovieView.UpComing {
         }
     }
 
-    override fun showData(data: List<ResponMovie.Result>?) {
+    override fun showData(data: List<ResponMovie.ResultMovie>?) {
         val layoutManager: CarouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true)
         layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
         view?.recyclerview_movie_comingsoon?.layoutManager = layoutManager

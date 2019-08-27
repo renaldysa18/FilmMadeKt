@@ -14,7 +14,7 @@ interface MainView {
         fun showDialog()
         fun showMessage(message: String)
         fun hideDialog()
-        fun showData(data: List<ResponMovie.Result>?)
+        fun showData(data: List<ResponMovie.ResultMovie>?)
         fun changeLayout()
     }
 
@@ -28,7 +28,7 @@ interface MainView {
         fun showDialog()
         fun showMessage(message : String)
         fun hideDialog()
-        fun showData(data : List<ResponTvShow.Result>)
+        fun showData(data : List<ResponTvShow.ResultTvShow>)
         fun changeLayout()
     }
 }

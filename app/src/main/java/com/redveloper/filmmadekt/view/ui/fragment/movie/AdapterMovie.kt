@@ -12,7 +12,7 @@ import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.ui.activity.movie.MovieDetailActivity
 import kotlinx.android.synthetic.main.list_item_movie.view.*
 
-class AdapterMovie(val items: List<ResponMovie.Result>?) :
+class AdapterMovie(val items: List<ResponMovie.ResultMovie>?) :
     RecyclerView.Adapter<AdapterMovie.ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         return ViewHolder(
@@ -38,11 +38,11 @@ class AdapterMovie(val items: List<ResponMovie.Result>?) :
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        private lateinit var dataGlobal: ResponMovie.Result
+        private lateinit var dataGlobal: ResponMovie.ResultMovie
 
         fun binding(
             p1: Int,
-            data: ResponMovie.Result?
+            data: ResponMovie.ResultMovie?
         ) {
             Glide.with(itemView.context)
                 .load(itemView.context.resources.getString(R.string.BASE_IMAGE) + data?.poster_path)
@@ -68,7 +68,7 @@ class AdapterMovie(val items: List<ResponMovie.Result>?) :
             }
         }
 
-        private fun toDetail(data: ResponMovie.Result) {
+        private fun toDetail(data: ResponMovie.ResultMovie) {
             val intent : Intent = Intent(itemView.context, MovieDetailActivity::class.java)
             intent.putExtra(Constant.dataMovie, data)
             itemView.context.startActivity(intent)

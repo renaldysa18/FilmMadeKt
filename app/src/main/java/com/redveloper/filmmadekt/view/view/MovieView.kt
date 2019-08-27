@@ -6,7 +6,7 @@ interface MovieView{
 
     interface NowPlaying{
         fun callMovie()
-        fun showData(data : List<ResponMovie.Result>?)
+        fun showData(data : List<ResponMovie.ResultMovie>?)
         fun showMessage(msg : String)
         fun showLoading()
         fun hideLoading()
@@ -22,7 +22,7 @@ interface MovieView{
 
     interface UpComing{
         fun CallUpComingMovie()
-        fun showData(data: List<ResponMovie.Result>?)
+        fun showData(data: List<ResponMovie.ResultMovie>?)
         fun showMessage(msg : String)
         fun showLoading()
         fun hideLoading()
@@ -38,7 +38,7 @@ interface MovieView{
 
     interface Popular{
         fun CallPopularMovie()
-        fun showData(data : List<ResponMovie.Result>?)
+        fun showData(data : List<ResponMovie.ResultMovie>?)
         fun showMessage(msg : String)
         fun showLoading()
         fun hideLoading()

@@ -5,7 +5,7 @@ import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 interface TvshowView{
     interface Popular{
         fun callTvShowPopular()
-        fun showData(data : List<ResponTvShow.Result>?)
+        fun showData(data : List<ResponTvShow.ResultTvShow>?)
         fun showMessage(msg : String)
         fun showLoading()
         fun hideLoading()
@@ -19,7 +19,7 @@ interface TvshowView{
     }
     interface TopRated{
         fun callTvShowTopRated()
-        fun showData(data : List<ResponTvShow.Result>?)
+        fun showData(data : List<ResponTvShow.ResultTvShow>?)
         fun showMessage(msg : String)
         fun showLoading()
         fun hideLoading()

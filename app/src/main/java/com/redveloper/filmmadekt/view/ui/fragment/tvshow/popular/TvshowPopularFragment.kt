@@ -58,7 +58,7 @@ class TvshowPopularFragment : Fragment(), TvshowView.Popular {
         }
     }
 
-    override fun showData(data: List<ResponTvShow.Result>?) {
+    override fun showData(data: List<ResponTvShow.ResultTvShow>?) {
         adapter = TvShowAdapter(data)
         view?.recyclerview_popular_tvshow?.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         view?.recyclerview_popular_tvshow?.adapter = adapter

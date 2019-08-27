@@ -106,7 +106,7 @@ class MovieFragment : Fragment(), View.OnClickListener, MainView.Movie {
         view?.customPager_movie?.gone()
     }
 
-    override fun showData(data: List<ResponMovie.Result>?) {
+    override fun showData(data: List<ResponMovie.ResultMovie>?) {
         changeLayout()
 
         val layoutManager: CarouselLayoutManager = CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true)

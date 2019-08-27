@@ -12,7 +12,7 @@ import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.ui.activity.movie.MovieDetailActivity
 import kotlinx.android.synthetic.main.list_item_favorite.view.*
 
-class AdapterFavoriteMovie(val items : List<ResponMovie.Result>) : RecyclerView.Adapter<AdapterFavoriteMovie.ViewHolder>(){
+class AdapterFavoriteMovie(val items : List<ResponMovie.ResultMovie>) : RecyclerView.Adapter<AdapterFavoriteMovie.ViewHolder>(){
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.list_item_favorite, p0, false))
     }
@@ -27,9 +27,9 @@ class AdapterFavoriteMovie(val items : List<ResponMovie.Result>) : RecyclerView.
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val baseImage = itemView.context.resources.getString(R.string.BASE_IMAGE)
-        private lateinit var dataGlobal: ResponMovie.Result
+        private lateinit var dataGlobal: ResponMovie.ResultMovie
 
-        fun binding(data: ResponMovie.Result) {
+        fun binding(data: ResponMovie.ResultMovie) {
             Glide.with(itemView.context)
                 .load(baseImage + data.poster_path)
                 .into(itemView.imageview_list_favorite)
@@ -43,7 +43,7 @@ class AdapterFavoriteMovie(val items : List<ResponMovie.Result>) : RecyclerView.
             toDetail(dataGlobal)
         }
 
-        private fun toDetail(data: ResponMovie.Result) {
+        private fun toDetail(data: ResponMovie.ResultMovie) {
             val intent : Intent = Intent(itemView.context, MovieDetailActivity::class.java)
             intent.putExtra(Constant.dataMovie, data)
             itemView.context.startActivity(intent)

@@ -5,7 +5,7 @@ import com.redveloper.filmmadekt.model.movie.ResponMovie
 interface ReleaseTodayView{
     interface View{
         fun callReleaseToday(date : String)
-        fun showData(data : List<ResponMovie.Result>)
+        fun showData(data : List<ResponMovie.ResultMovie>)
         fun showMessage(msg : String)
         fun showLoading()
         fun hideLoading()

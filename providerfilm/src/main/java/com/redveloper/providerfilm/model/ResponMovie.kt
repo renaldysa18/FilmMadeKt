@@ -1,8 +1,8 @@
-package com.redveloper.filmmadekt.model.movie
+package com.redveloper.providerfilm.model
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
-import android.content.ContentValues
+import android.database.Cursor
 import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -11,7 +11,7 @@ import kotlinx.android.parcel.Parcelize
 class ResponMovie {
     @SerializedName("results")
     @Expose
-    var results: List<ResultMovie>? = null
+    var results: List<Result>? = null
     @SerializedName("page")
     @Expose
     var page: Int? = 0
@@ -36,7 +36,7 @@ class ResponMovie {
 
     @Entity(tableName = "moviedb")
     @Parcelize
-    data class ResultMovie(
+    data class Result(
         @SerializedName("vote_count")
         @Expose
         var vote_count : Int? = 0,
@@ -78,22 +78,34 @@ class ResponMovie {
         @Expose
         var release_date : String? = null
     ) : Parcelable {
-        fun contentValue() : ContentValues{
-            var contentValues = ContentValues()
-            contentValues.put("vote_count", vote_count)
-            contentValues.put("id", id)
-            contentValues.put("video", video)
-            contentValues.put("vote_average", vote_average)
-            contentValues.put("title", title)
-            contentValues.put("popularity", popularity)
-            contentValues.put("poster_path", poster_path)
-            contentValues.put("original_languange", original_languange)
-            contentValues.put("original_title", original_title)
-            contentValues.put("backdrop_path", backdrop_path)
-            contentValues.put("adult", adult)
-            contentValues.put("overview", overview)
-            contentValues.put("release_date", release_date)
-            return contentValues
+        val VOTE_COUNT = "vote_count"
+        val ID  = "id"
+        val VIDEO = "video"
+        val VOTE_AVERAGE = "vote_average"
+        val TITLE = "title"
+        val POPULARITY = "popularity"
+        val POSTER_PATH = "poster_path"
+        val ORIGINAL_LANGUANGE = "original_languange"
+        val ORIGINAL_TITLE = "original_title"
+        val BACKDROP_PATH = "backdrop_path"
+        val ADULT = "adult"
+        val OVERVIEW = "overview"
+        val RELEASE_DATE = "release_date"
+
+        constructor(cursor: Cursor) : this() {
+            vote_count = (cursor.getInt(cursor.getColumnIndex(VOTE_COUNT)))
+            id = (cursor.getInt(cursor.getColumnIndex(ID)))
+            video = (cursor.getString(cursor.getColumnIndex(VIDEO)).toBoolean())
+            vote_average = (cursor.getDouble(cursor.getColumnIndex(VOTE_AVERAGE)))
+            title = (cursor.getString(cursor.getColumnIndex(TITLE)))
+            popularity = (cursor.getDouble(cursor.getColumnIndex(POPULARITY)))
+            poster_path = (cursor.getString(cursor.getColumnIndex(POSTER_PATH)))
+            original_languange = (cursor.getString(cursor.getColumnIndex(ORIGINAL_LANGUANGE)))
+            original_title = (cursor.getString(cursor.getColumnIndex(ORIGINAL_TITLE)))
+            backdrop_path = (cursor.getString(cursor.getColumnIndex(BACKDROP_PATH)))
+            adult = (cursor.getString(cursor.getColumnIndex(ADULT)).toBoolean())
+            overview = (cursor.getString(cursor.getColumnIndex(OVERVIEW)))
+            release_date = (cursor.getString(cursor.getColumnIndex(RELEASE_DATE)))
         }
     }
 }

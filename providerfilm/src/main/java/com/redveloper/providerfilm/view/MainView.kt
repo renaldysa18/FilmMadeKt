@@ -1,11 +1,11 @@
 package com.redveloper.providerfilm.view
 
 import android.database.Cursor
-import com.redveloper.providerfilm.model.MovieData
+import com.redveloper.providerfilm.model.ResponMovie
 
 interface MainView{
     interface ViewMovie{
-        fun showData(data : ArrayList<MovieData>)
+        fun showData(data: ArrayList<ResponMovie.Result>)
         fun noData()
         fun showShimmer()
         fun hideShimmer()
@@ -18,7 +18,7 @@ interface MainView{
 
     interface PresenterMovie{
         fun getDataMovie()
-        fun convertData(cursor: Cursor) : ArrayList<MovieData>
+        fun convertData(cursor: Cursor) : ArrayList<ResponMovie.Result>
     }
     interface PresenterTvShow{
 

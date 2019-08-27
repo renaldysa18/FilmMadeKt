@@ -14,7 +14,7 @@ class MoviePresenter(val view: MainView.Movie) : MainView.MoviePresenter {
     private val baseApi = BaseApi.create()
     private var compositeDisposable: CompositeDisposable? = null
 
-    private var dataMovie: List<ResponMovie.Result>? = null
+    private var dataMovie: List<ResponMovie.ResultMovie>? = null
 
     override fun searchMovie(api_key: String, languange: String, query: String) {
         view.showDialog()

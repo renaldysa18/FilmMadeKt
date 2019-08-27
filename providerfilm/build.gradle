@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 def config = rootProject.extensions.getByName("ext")
 
@@ -42,10 +43,15 @@ dependencies {
     implementation config.commonDependency.glide
     implementation config.commonDependency.shimmer
     implementation config.commonDependency.gson
+    implementation config.commonDependency.room
+
 
 
     testImplementation config.commonDependency.jUnitLib
+    annotationProcessor config.commonDependency.roomAnnotation
     annotationProcessor config.commonDependency.glideCompiler
     androidTestImplementation config.commonDependency.testRunner
     androidTestImplementation config.commonDependency.espresso
+    kapt config.commonDependency.roomKapt
+
 }

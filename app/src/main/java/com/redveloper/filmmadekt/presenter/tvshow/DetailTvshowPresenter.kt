@@ -8,11 +8,11 @@ import com.redveloper.filmmadekt.view.view.DetailView
 
 class DetailTvshowPresenter(val view : DetailView.ViewTvshow) : DetailView.PresenterTvshow{
 
-    private lateinit var dataGlobal : ResponTvShow.Result
+    private lateinit var dataGlobal : ResponTvShow.ResultTvShow
 
     private var idTvshow : Long = 0
 
-    override fun extractData(context: Context, data: ResponTvShow.Result) {
+    override fun extractData(context: Context, data: ResponTvShow.ResultTvShow) {
         val image : String? = context.resources.getString(R.string.BASE_IMAGE) + data.poster_path
         val title : String? = data.name
         val releaseDate : String? = data.first_air_date

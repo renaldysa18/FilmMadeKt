@@ -59,7 +59,7 @@ class TvshowTopRatedFragment : Fragment(), TvshowView.TopRated {
         }
     }
 
-    override fun showData(data: List<ResponTvShow.Result>?) {
+    override fun showData(data: List<ResponTvShow.ResultTvShow>?) {
         view?.recyclerview_toprated_tvshow?.layoutManager = LinearLayoutManager(activity, LinearLayout.VERTICAL, false)
         adapter = TvShowAdapter(data)
         view?.recyclerview_toprated_tvshow?.adapter = adapter

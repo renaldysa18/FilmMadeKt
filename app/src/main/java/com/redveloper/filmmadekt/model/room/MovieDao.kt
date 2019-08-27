@@ -9,13 +9,13 @@ import com.redveloper.filmmadekt.model.movie.ResponMovie
 @Dao
 interface MovieDao{
     @Insert
-    fun insertMovie(data : ResponMovie.Result)
+    fun insertMovie(data : ResponMovie.ResultMovie)
 
     @Query("SELECT * FROM moviedb")
-    fun getAllMovie() : List<ResponMovie.Result>
+    fun getAllMovie() : List<ResponMovie.ResultMovie>
 
     @Query("SELECT * FROM moviedb WHERE id == :id")
-    fun getSelectMovie(id : Long) : ResponMovie.Result
+    fun getSelectMovie(id : Long) : ResponMovie.ResultMovie
 
     @Query("DELETE FROM moviedb WHERE id == :id")
     fun removeSpecific(id : Long)

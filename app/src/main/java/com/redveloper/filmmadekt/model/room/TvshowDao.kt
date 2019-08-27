@@ -9,13 +9,13 @@ import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 @Dao
 interface TvshowDao{
     @Insert
-    fun insertTvshow(data : ResponTvShow.Result)
+    fun insertTvshow(data : ResponTvShow.ResultTvShow)
 
     @Query("SELECT * FROM tvshowdb")
-    fun getAllTvshow() : List<ResponTvShow.Result>
+    fun getAllTvshow() : List<ResponTvShow.ResultTvShow>
 
     @Query("SELECT * FROM tvshowdb WHERE id == :id")
-    fun getSelectTvshow(id : Long) : ResponTvShow.Result
+    fun getSelectTvshow(id : Long) : ResponTvShow.ResultTvShow
 
     @Query("DELETE FROM tvshowdb WHERE id == :id")
     fun removeSpecific(id : Long)

@@ -1,6 +1,7 @@
 package com.redveloper.filmmadekt.presenter.movie
 
 import android.content.Context
+import android.net.Uri
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.model.room.AppDatabase
@@ -8,10 +9,18 @@ import com.redveloper.filmmadekt.view.view.DetailView
 
 class DetailMoviePresenter(val view: DetailView.ViewMovie) : DetailView.PresenterMovie {
 
-    private lateinit var dataGlobal: ResponMovie.Result
+    private lateinit var dataGlobal: ResponMovie.ResultMovie
     private var idMovie: Long = 0
 
-    override fun extractData(context: Context, data: ResponMovie.Result) {
+    private val AUTHORY = "com.redveloper.filmmadekt"
+    private val SCHEME = "content"
+    private val CONTENT_URI : Uri = Uri.Builder()
+        .scheme(SCHEME)
+        .authority(AUTHORY)
+        .appendPath(ResponMovie.ResultMovie::class.java.simpleName as String)
+        .build()
+
+    override fun extractData(context: Context, data: ResponMovie.ResultMovie) {
         val image: String = context.resources.getString(R.string.BASE_IMAGE) + data.poster_path
         val title: String = data.title.toString()
         val releaseDate: String = data.release_date.toString()
@@ -42,6 +51,7 @@ class DetailMoviePresenter(val view: DetailView.ViewMovie) : DetailView.Presente
 
     override fun insertFavorite(context: Context) {
         AppDatabase.getInstance(context).movieDao().insertMovie(dataGlobal)
+        context.contentResolver.insert(CONTENT_URI, dataGlobal.contentValue())
     }
 
     override fun removeFavorite(context: Context) {

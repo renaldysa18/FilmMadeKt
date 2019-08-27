@@ -45,7 +45,7 @@ class FavoriteFragment : Fragment(), FavoriteView.View {
         )
     }
 
-    override fun listFavoriteMovie(data: List<ResponMovie.Result>?) {
+    override fun listFavoriteMovie(data: List<ResponMovie.ResultMovie>?) {
         if (!data.isNullOrEmpty()) {
             view?.recyclerview_favorite_movie?.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
             adapter = AdapterFavoriteMovie(data)
@@ -55,7 +55,7 @@ class FavoriteFragment : Fragment(), FavoriteView.View {
         }
     }
 
-    override fun listFavoriteTvshow(data: List<ResponTvShow.Result>?) {
+    override fun listFavoriteTvshow(data: List<ResponTvShow.ResultTvShow>?) {
         if(!data.isNullOrEmpty()){
            view?.recyclerview_favorite_tvshow?.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
             adapterTv  = AdapterFavoriteTvShow(data)
