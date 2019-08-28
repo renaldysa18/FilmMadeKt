@@ -1,5 +1,7 @@
 package com.redveloper.providerfilm.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +9,8 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.redveloper.providerfilm.R
 import com.redveloper.providerfilm.model.ResponTvShow
+import com.redveloper.providerfilm.utils.Constant
+import com.redveloper.providerfilm.view.ui.activity.TvShowDetailActivity
 import kotlinx.android.synthetic.main.view_list_film.view.*
 
 class TvShowAdapter(val items : ArrayList<ResponTvShow.ResultTvShow>) : RecyclerView.Adapter<TvShowAdapter.ViewHolder>(){
@@ -33,7 +37,16 @@ class TvShowAdapter(val items : ArrayList<ResponTvShow.ResultTvShow>) : Recycler
 
             itemView.tvTitleListFilm.text = data.name
             itemView.tvDesListFilm.text = data.overview
+            itemView.setOnClickListener {
+                toDetail(itemView.context, data)
+            }
 
+        }
+
+        private fun toDetail(context : Context, data : ResponTvShow.ResultTvShow){
+            val intent = Intent(context, TvShowDetailActivity::class.java)
+            intent.putExtra(Constant.dataTvShow, data)
+            context.startActivity(intent)
         }
     }
 }

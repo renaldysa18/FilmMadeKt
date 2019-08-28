@@ -12,9 +12,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
+            android:name=".view.ui.activity.TvShowDetailActivity"
+            android:label="@string/title_activity_detail_tv_show"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".view.ui.activity.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,9 +27,9 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="com.redveloper.filmmadekt.READ_DATABASE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="com.redveloper.filmmadekt.READ_DATABASE" />
 
 </manifest>
