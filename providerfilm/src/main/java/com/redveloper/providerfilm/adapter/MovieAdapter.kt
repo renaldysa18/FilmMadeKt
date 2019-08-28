@@ -28,7 +28,7 @@ class MovieAdapter(val items : ArrayList<ResponMovie.ResultMovie>) : RecyclerVie
     class ViewHolder(itemsView : View) : RecyclerView.ViewHolder(itemsView){
         fun binding(data: ResponMovie.ResultMovie) {
             Glide.with(itemView.context)
-                .load(itemView.context.resources.getString(R.string.BASE_IMAGE)+data.POSTER_PATH)
+                .load(itemView.context.resources.getString(R.string.BASE_IMAGE)+data.poster_path)
                 .into(itemView.imgvListFilm)
 
             itemView.tvTitleListFilm.text = data.title

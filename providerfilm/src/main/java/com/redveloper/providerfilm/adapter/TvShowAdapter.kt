@@ -28,7 +28,7 @@ class TvShowAdapter(val items : ArrayList<ResponTvShow.ResultTvShow>) : Recycler
     class ViewHolder(itemsView : View) : RecyclerView.ViewHolder(itemsView){
         fun binding(data: ResponTvShow.ResultTvShow) {
             Glide.with(itemView.context)
-                .load(itemView.context.resources.getString(R.string.BASE_IMAGE)+data.POSTER_PATH)
+                .load(itemView.context.resources.getString(R.string.BASE_IMAGE)+data.poster_path)
                 .into(itemView.imgvListFilm)
 
             itemView.tvTitleListFilm.text = data.name
