@@ -45,7 +45,7 @@ class AdapterFavoriteTvShow(val items: List<ResponTvShow.ResultTvShow>) :
 
         private fun toDetail(data: ResponTvShow.ResultTvShow) {
             val intent: Intent = Intent(itemView.context, TvshowDetailActivity::class.java)
-            intent.putExtra(Constant.dataMovie, data)
+            intent.putExtra(Constant.dataTvShow, data)
             itemView.context.startActivity(intent)
         }
     }
