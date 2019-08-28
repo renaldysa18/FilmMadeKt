@@ -27,48 +27,48 @@ class ResponTvShow{
     data class ResultTvShow(
         @SerializedName("original_name")
         @Expose
-        val orignal_name : String,
+        var original_name : String? = null,
         @SerializedName("name")
         @Expose
-        val name : String,
+        var name : String? = null,
         @SerializedName("popularity")
         @Expose
-        val popularity : Double,
+        var popularity : Double? = null,
         @SerializedName("vote_count")
         @Expose
-        val vote_count : Int,
+        var vote_count : Int? = 0,
         @SerializedName("first_air_date")
         @Expose
-        val first_air_date : String,
+        var first_air_date : String? = null,
         @SerializedName("backdrop_path")
         @Expose
-        val backdrop_path : String,
+        var backdrop_path : String? = null,
         @SerializedName("original_language")
         @Expose
-        val original_language : String,
+        var original_language : String? = null,
         @PrimaryKey
         @SerializedName("id")
         @Expose
-        val id : Int,
+        var id : Int? = 0,
         @SerializedName("vote_average")
         @Expose
-        val vote_average : Double,
+        var vote_average : Double? = 0.0,
         @SerializedName("overview")
         @Expose
-        val overview : String,
+        var overview : String?= null,
         @SerializedName("poster_path")
         @Expose
-        val poster_path : String
+        var poster_path : String? = null
     ) : Parcelable{
         fun contentValue() : ContentValues{
             var contentValues = ContentValues()
-            contentValues.put("original_name", orignal_name)
+            contentValues.put("original_name", original_name)
             contentValues.put("name", name)
             contentValues.put("popularity", popularity)
             contentValues.put("vote_count", vote_count)
             contentValues.put("first_air_date", first_air_date)
             contentValues.put("backdrop_path", backdrop_path)
-            contentValues.put("original_languange", original_language)
+            contentValues.put("original_language", original_language)
             contentValues.put("id", id)
             contentValues.put("vote_average", vote_average)
             contentValues.put("overview", overview)

@@ -15,9 +15,9 @@ class ProviderService : ContentProvider() {
     private val AUTORITY = "com.redveloper.filmmadekt"
     private val MOVIE = 1
     private val TVSHOW = 2
-    private var urimatcher: UriMatcher = UriMatcher(UriMatcher.NO_MATCH)
     private val MOVIE_TABLE = ResponMovie.ResultMovie::class.java.simpleName as String
     private val TVSHOW_TABLE = ResponTvShow.ResultTvShow::class.java.simpleName as String
+    private var urimatcher: UriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
     init {
         urimatcher.addURI(AUTORITY, MOVIE_TABLE, MOVIE)

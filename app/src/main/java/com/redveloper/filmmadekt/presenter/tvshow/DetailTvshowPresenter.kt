@@ -37,7 +37,10 @@ class DetailTvshowPresenter(val view: DetailView.ViewTvshow) : DetailView.Presen
         )
 
         this.dataGlobal = data
-        idTvshow = data.id.toLong()
+        if(data.id != null){
+            idTvshow = data.id!!.toLong()
+
+        }
     }
 
     private fun getYear(date: String?): String? {

@@ -7,7 +7,6 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.RemoteException
 import android.util.Log
-import com.redveloper.providerfilm.model.ResponMovie
 import com.redveloper.providerfilm.model.ResponTvShow
 import com.redveloper.providerfilm.view.MainView
 
@@ -43,12 +42,14 @@ class TvShowPresenter(val context: Context, val view: MainView.ViewTvShow) : Mai
                 null,
                 null,
                 null
-            )!!
+            )
             assert(cursor != null)
+//            Log.i("cursorlength",cursor.getColumnName(0))
             if (cursor.count > 0)
                 view.showData(convertData(cursor))
             else
                 view.noData()
+            cursor.close()
         } catch (e: RemoteException) {
             view.hideShimmer()
             view.showMessage(e.localizedMessage)

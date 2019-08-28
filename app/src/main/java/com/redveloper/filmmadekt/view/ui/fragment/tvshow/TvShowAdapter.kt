@@ -41,7 +41,7 @@ class TvShowAdapter(val items : List<ResponTvShow.ResultTvShow>?) : RecyclerView
                 .load(itemView.context.resources.getString(R.string.BASE_IMAGE) + get?.poster_path)
                 .into(itemView.imageview_list_tvshow)
 
-            itemView.textview_list_title_tvshow.setText(get?.orignal_name)
+            itemView.textview_list_title_tvshow.setText(get?.original_name)
             itemView.textview_release_date_list_tvshow.setText(get?.first_air_date)
             itemView.textview_description_list_tvshow.setText(get?.overview)
 

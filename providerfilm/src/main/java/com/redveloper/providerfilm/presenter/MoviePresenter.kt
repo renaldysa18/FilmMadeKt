@@ -44,13 +44,13 @@ class MoviePresenter(val context: Context, val view: MainView.ViewMovie) : MainV
                 null,
                 null,
                 null
-            )!!
+            )
             assert(cursor != null)
-            Log.i("oioioioi",cursor.count.toString())
             if (cursor.count > 0)
                 view.showData(convertData(cursor))
             else
                 view.noData()
+            cursor.close()
         } catch (e: RemoteException) {
             view.hideShimmer()
             view.showMessage(e.localizedMessage)
