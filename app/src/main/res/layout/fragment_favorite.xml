@@ -1,28 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/background_gradient"
     tools:context=".view.ui.fragment.favorite.FavoriteFragment">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager_favorite"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/favorite_movie"
+        android:id="@+id/text_favorite_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tablayout_favorite"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/colorPrimaryDark"
-            app:tabGravity="fill"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@android:color/white"
-            app:tabTextColor="@android:color/white" />
-    </android.support.v4.view.ViewPager>
-</FrameLayout>
+    <View
+        android:id="@+id/view_horizontal_1"
+        android:background="@color/colorYellow"
+        app:layout_constraintTop_toBottomOf="@id/text_favorite_movie"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="5dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_favorite_movie"
+        app:layout_constraintBottom_toTopOf="@id/guidline_50_vertical_favorite"
+        app:layout_constraintTop_toBottomOf="@id/view_horizontal_1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/text_data_empety_movie"
+        android:text="@string/data_movie_empety"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/guidline_50_vertical_favorite"
+        app:layout_constraintTop_toBottomOf="@id/view_horizontal_1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidline_50_vertical_favorite"
+        android:text="@string/favorite_tvshow"
+        android:id="@+id/text_favorite_tvshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/view_horizontal_2"
+        android:background="@color/colorYellow"
+        app:layout_constraintTop_toBottomOf="@id/text_favorite_tvshow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="5dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_favorite_tvshow"
+        app:layout_constraintTop_toBottomOf="@id/view_horizontal_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/text_data_empety_tvshow"
+        android:text="@string/data_tvshow_empety"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/view_horizontal_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidline_50_vertical_favorite"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</android.support.constraint.ConstraintLayout>

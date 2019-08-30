@@ -1,55 +1,34 @@
 package com.redveloper.filmmadekt.view.view
 
-import android.content.Context
 import com.redveloper.filmmadekt.model.movie.ResponMovie
-import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 
 interface MainView {
-
-    interface MovieView {
-        fun makeToast(msg: String)
-        fun showData(data: ArrayList<ResponMovie.ResultMovie>)
-        fun callMovie()
-        fun showShimemr()
-        fun hideShimmer()
-    }
-
     interface MoviePresenter {
-        fun getMoview(
-            apikey: String,
-            dateGte: String,
-            dateLte: String
-        )
-
-        fun toDetailMovie(context: Context, pos : Int)
+        fun searchMovie(api_key: String, languange: String, query: String)
     }
 
-
-    interface MovieFavoritePresenter{
-        fun getFavoriteMovie(context: Context)
-        fun toDetailMovie(context: Context, pos : Int)
+    interface Movie {
+        fun searchMovie(query: String)
+        fun showDialogFragment()
+        fun showDialog()
+        fun showMessage(message: String)
+        fun hideDialog()
+        fun showData(data: List<ResponMovie.ResultMovie>?)
+        fun changeLayout()
     }
 
-    interface TvshowView {
-        fun makeToast(msg: String)
-        fun showShimmer()
-        fun hideShimmer()
-        fun showData(results: List<ResponTvshow.ResultTvShow>?)
-        fun callTvshow()
+    interface TvShowPresenter{
+        fun searchTvShow(api_key: String, languange: String, query: String)
     }
 
-    interface TvshowPresenter {
-        fun getTvshow(
-            apikey: String,
-            languange: String,
-            page: String
-        )
-
-        fun toDetailTvshow(context: Context, pos : Int)
-    }
-
-    interface TvshowFavortePresenter{
-        fun getFavoriteTvshow(context: Context)
-        fun toDetailTvshow(context: Context, pos : Int)
+    interface TvShow{
+        fun searchTvshow(query: String)
+        fun showDialogFragment()
+        fun showDialog()
+        fun showMessage(message : String)
+        fun hideDialog()
+        fun showData(data : List<ResponTvShow.ResultTvShow>)
+        fun changeLayout()
     }
 }

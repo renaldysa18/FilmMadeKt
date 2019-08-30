@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:cardCornerRadius="10dp"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_search_df"
+            android:textColor="@color/colorBlueSoft"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/search"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:hint="@string/search"
+            android:id="@+id/edittext_search_df"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_search_df"
+            android:layout_margin="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <Button
+            android:layout_marginTop="15dp"
+            android:id="@+id/button_exit_df"
+            android:textColor="@color/colorBlueSoft"
+            android:text="@string/exit"
+            android:background="@drawable/button_rounded_outline_blue"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintRight_toLeftOf="@id/guidline_50_vertical_df"
+            app:layout_constraintTop_toBottomOf="@id/edittext_search_df"
+            android:layout_width="120dp"
+            android:layout_height="40dp" />
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:id="@+id/button_search_df"
+            android:textColor="@color/colorBlueSoft"
+            android:text="@string/search"
+            android:background="@drawable/button_rounded_outline_blue"
+            android:layout_marginStart="30dp"
+            app:layout_constraintLeft_toRightOf="@id/guidline_50_vertical_df"
+            app:layout_constraintTop_toBottomOf="@id/edittext_search_df"
+            android:layout_width="120dp"
+            android:layout_height="40dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guidline_50_vertical_df"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

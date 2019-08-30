@@ -1,6 +1,8 @@
 package com.redveloper.filmmadekt.view.ui.fragment.tvshow
 
 
+import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -11,15 +13,21 @@ import android.widget.LinearLayout
 import android.widget.Toast
 
 import com.redveloper.filmmadekt.R
-import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
-import com.redveloper.filmmadekt.presenter.tvshow.TvshowPresenter
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
+import com.redveloper.filmmadekt.presenter.tvshow.TvShowPresenter
+import com.redveloper.filmmadekt.utils.gone
+import com.redveloper.filmmadekt.utils.visible
 import com.redveloper.filmmadekt.view.view.MainView
+import kotlinx.android.synthetic.main.dialog_fragment_search.view.*
+import kotlinx.android.synthetic.main.fragment_tvshow.*
 import kotlinx.android.synthetic.main.fragment_tvshow.view.*
+import kotlinx.android.synthetic.main.fragment_tvshow.view.customPager_tvshow
 
-class TvshowFragment : Fragment(), MainView.TvshowView, TvshowAdapter.OnItemClickListener {
-    private lateinit var adapter: TvshowAdapter
-    private lateinit var presenter: TvshowPresenter
-    private lateinit var dataGlobal: ArrayList<ResponTvshow.ResultTvShow>
+class TvshowFragment : Fragment(), MainView.TvShow, View.OnClickListener{
+
+    private lateinit var presenter : TvShowPresenter
+    private lateinit var adapter : TvShowAdapter
+    private lateinit var progress : ProgressDialog
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,53 +38,77 @@ class TvshowFragment : Fragment(), MainView.TvshowView, TvshowAdapter.OnItemClic
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.recyclerview_tvshow.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-        if (savedInstanceState != null) {
-            showData(savedInstanceState.getParcelableArrayList("DataTvshow"))
-        } else {
-            presenter = TvshowPresenter(this)
-            callTvshow()
+
+        presenter = TvShowPresenter(this)
+        progress = ProgressDialog(context)
+
+        val adapter = context?.let { TvShowViewPager(childFragmentManager, it) }
+        view.customPager_tvshow.adapter = adapter
+        view.customPager_tvshow.setSwipe(false)
+        view.tablayout_tvshow.setupWithViewPager(customPager_tvshow)
+
+        view.fab_search_tvshow.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when(v?.id){
+            R.id.fab_search_tvshow -> showDialogFragment()
         }
     }
 
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        if (outState != null) {
-            outState.putParcelableArrayList("DataTvshow", dataGlobal)
-        }
-    }
-
-    override fun callTvshow() {
-        presenter.getTvshow(
-            resources.getString(R.string.API_KEY), "en-Us", "1"
+    override fun searchTvshow(query: String) {
+        presenter.searchTvShow(
+            resources.getString(R.string.API_KEY), "en-Us", query
         )
     }
 
-    override fun makeToast(msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+    override fun showDialogFragment() {
+        val layoutInflater = LayoutInflater.from(context)
+        val view = layoutInflater.inflate(R.layout.dialog_fragment_search, null)
+        val alertBuilder = AlertDialog.Builder(context)
+        alertBuilder.setView(view)
+
+
+        alertBuilder.setCancelable(false)
+        val alertDialog = alertBuilder.create()
+        alertDialog.show()
+
+        view.button_search_df.setOnClickListener {
+            searchTvshow(view.edittext_search_df.text.toString())
+            alertDialog.dismiss()
+        }
+
+        view.button_exit_df.setOnClickListener {
+            alertDialog.cancel()
+        }
     }
 
-    override fun showShimmer() {
-        view?.shimmerList?.startShimmerAnimation()
+    override fun showDialog() {
+        progress.setCancelable(false)
+        progress.setMessage(resources.getString(R.string.please_wait))
+        progress.show()
     }
 
-    override fun hideShimmer() {
-        view?.shimmerList?.stopShimmerAnimation()
-        view?.shimmerList?.visibility = View.GONE
+    override fun showMessage(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun showData(results: List<ResponTvshow.ResultTvShow>?) {
-        adapter = TvshowAdapter(results as ArrayList<ResponTvshow.ResultTvShow>)
-        view?.recyclerview_tvshow?.adapter = adapter
-
-        adapter.setOnClickListener(this)
-
-        //init data
-        this.dataGlobal = results
+    override fun hideDialog() {
+        progress.dismiss()
     }
 
-    override fun OnClickItem(pos: Int) {
-        context?.let { presenter.toDetailTvshow(it, pos) }
+    override fun showData(data: List<ResponTvShow.ResultTvShow>) {
+        changeLayout()
+
+        adapter = TvShowAdapter(data)
+
+        view?.recyclerview_tvshow_search?.layoutManager = LinearLayoutManager(activity, LinearLayout.HORIZONTAL, false)
+        view?.recyclerview_tvshow_search?.adapter = adapter
+    }
+
+    override fun changeLayout() {
+        view?.tablayout_tvshow?.gone()
+        view?.customPager_tvshow?.gone()
+        view?.recyclerview_tvshow_search?.visible()
     }
 }
