@@ -23,3 +23,7 @@ In-app features:
 5. Displaying Movie that aired on this day.
 
 6. Settings about application.
+
+link for The Movie Db :
+https://www.themoviedb.org/documentation/api?language=en-US
+
