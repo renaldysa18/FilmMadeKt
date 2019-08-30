@@ -8,7 +8,7 @@ preview application
 ![](static/ss_2.png)
 ![](static/ss_3.png)
 
-<b> an application about movies and tv shows that utilizes the REST API from The Movie DB. <b>
+An application about movies and tv shows that utilizes the REST API from The Movie DB.
 
 In-app features:
 
