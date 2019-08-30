@@ -1,9 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-buildscript {
+buildscript { 
+    ext.kotlin_version = '1.3.41'
+
     repositories {
         google()
         jcenter()
+        mavenCentral()
         
     }
     dependencies {
@@ -11,7 +14,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.31"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-    }
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
 }
 
 allprojects {
@@ -37,12 +40,18 @@ ext{
     testRunnerVersion = '1.0.2'
     espressoVersion = '3.0.2'
     retrofitVersion = '2.6.0'
-    gsonVersion = '2.5.0'
+    gsonVersion = '2.8.2'
     glideVersion = '4.9.0'
     shimmerVersion = '0.1.0'
     rxJavaReactiveVersion = '2.2.9'
     rxAndroid = '2.0.2'
     roomVersion = '1.1.1'
+    carouselRvVersion = '1.2.4'
+    circularImageVersion = '1.2.0'
+    switchVersion = '2.0.0'
+    easyPrefVersion = '1.9.0'
+    arcnavigationVersion = '1.0.3'
+
     commonDependency = [
             kotlin : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",
             supportLib : "com.android.support:appcompat-v7:${supportLibVersion}",
@@ -65,5 +74,10 @@ ext{
             room : "android.arch.persistence.room:runtime:${roomVersion}",
             roomAnnotation : "android.arch.persistence.room:compiler:${roomVersion}",
             roomKapt : "android.arch.persistence.room:compiler:${roomVersion}",
+            carouselRv : "com.azoft.carousellayoutmanager:carousel:${carouselRvVersion}",
+            circularImage : "com.jackandphantom.android:circularimageview:${circularImageVersion}",
+            switchButton : "com.kyleduo.switchbutton:library:${switchVersion}",
+            easyPref : "com.pixplicity.easyprefs:library:${easyPrefVersion}",
+            arcnavigation : "com.rom4ek:arcnavigationview:${arcnavigationVersion}",
     ]
 }

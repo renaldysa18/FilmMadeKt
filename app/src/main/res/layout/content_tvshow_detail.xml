@@ -4,73 +4,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".view.ui.activity.tvshow.TvshowDetail"
+    tools:context=".view.ui.activity.tvshow.TvshowDetailActivity"
     tools:showIn="@layout/activity_tvshow_detail">
 
     <android.support.constraint.ConstraintLayout
-        android:padding="10dp"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="@string/title"
-            android:id="@+id/tv_titleDetailTvshow"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            android:textColor="@android:color/darker_gray"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/textview_title_detailtvshow"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:text="@string/title"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/tv_titleDetailTvshow"
+            android:id="@+id/text_storyline"
+            android:text="@string/storyline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_marginTop="20dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_titleDetailTvshow"
-            android:text="@string/vote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textview_vote_detailtvshow"
-            android:layout_marginTop="20dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:text="@string/vote"
-            app:layout_constraintTop_toBottomOf="@id/textview_title_detailtvshow"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textview_release_detailtvshow"
-            android:text="@string/release_date"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@id/textview_vote_detailtvshow"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/textview_description_detailtvshow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/textview_storyline_tvshow_detail"
             android:text="@string/description"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_release_detailtvshow"
+            app:layout_constraintTop_toBottomOf="@id/text_storyline"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:id="@+id/button_favorite_tvshow"
+            app:layout_constraintTop_toBottomOf="@id/textview_storyline_tvshow_detail"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@android:color/white"
+            android:text="@string/title_favorite"
+            android:background="@drawable/rounded_corner_yellow"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/text_about_tvshow"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_favorite_tvshow"
+            android:text="@string/about_tvshow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/text_original_title_tvshow_detail"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_marginTop="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_about_tvshow"
+            android:text="@string/original_title"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textview_original_title_tvshow_detail"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="@string/title"
+            android:layout_marginTop="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintTop_toBottomOf="@id/text_about_tvshow"
+            app:layout_constraintLeft_toRightOf="@id/text_original_title_tvshow_detail"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/text_release_date_tvshow_detail"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_original_title_tvshow_detail"
+            android:text="@string/release_date"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textview_release_date_tvshow_detail"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/white"
+            android:text="@string/release_date"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/textview_original_title_tvshow_detail"
+            app:layout_constraintLeft_toRightOf="@id/text_release_date_tvshow_detail"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/text_release_date_tvshow_detail"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/recyclerview_pict"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+        </android.support.v7.widget.RecyclerView>
+
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v4.widget.NestedScrollView>

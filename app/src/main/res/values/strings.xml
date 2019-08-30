@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name" translatable="false">FilmMadeKt</string>
-    <string name="BASE_IMAGE" translatable="false">https://image.tmdb.org/t/p/w300</string>
+    <string name="app_name">FilmMadeKt</string>
+    <string name="BASE_IMAGE" translatable="false">https://image.tmdb.org/t/p/w500</string>
     <string name="API_KEY" translatable="false">9764540cc75307bf937adec56fb19821</string>
 
     <string name="title_home">Home</string>
@@ -8,7 +8,7 @@
     <string name="title_notifications">Notifications</string>
 
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="title_movie">Movie</string>
     <string name="title_tvshow">Tv Show</string>
     <string name="title_favorite">Favorite</string>
@@ -24,5 +24,56 @@
     <string name="change_languange">Change Languange</string>
     <string name="empety_movie">Favorite Movie Empety</string>
     <string name="empety_tvshow">Favorite Tv Show Empety</string>
+    <string name="detail">Detail</string>
+    <string name="title_activity_main2" translatable="false">Main2Activity</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="toolbar_title">Title</string>
+    <string name="title_now_showing">Now Showing</string>
+    <string name="title_coming_soon">Coming Soon</string>
+    <string name="title_popular">Popular</string>
+    <string name="title_top_rated">Top Rated</string>
+    <string name="bahasa">language Setting</string>
+    <string name="bahasa_indonesia" translatable="false">Indonesia</string>
+    <string name="bahasa_inggris" translatable="false">English</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_activity_movie_detail" translatable="false">MovieDetailActivity</string>
+    <string name="year">Year</string>
+    <string name="storyline">STORYLINE</string>
+    <string name="about_movie">ABOUT MOVIE</string>
+    <string name="original_title">Original Title :</string>
+    <string name="original_languange">Original Languange</string>
+    <string name="adult">Adult</string>
+    <string name="about_tvshow">ABOUT TV SHOW</string>
+    <string name="favorite_movie">Favorite Movie</string>
+    <string name="favorite_tvshow">Favorite Tv Show</string>
+    <string name="data_movie_empety">Favorite movie data is empty</string>
+    <string name="data_tvshow_empety">Favorite tvshow data is empty</string>
+    <string name="search">Search</string>
+    <string name="exit">Exit</string>
+    <string name="cancel">Cancel</string>
+    <string name="please_wait">Please wait . . .</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="appwidget_text">Favorite</string>
+    <string name="empty_text">Empety</string>
+    <string name="notif_daily">check out your favorite movie or tv show</string>
+    <string name="TIME_DAILY" translatable="false">14:15</string>
+    <string name="info">Info</string>
+    <string name="alarm">Setting Alarm</string>
+    <string name="alarm_daily">Alarm Daily</string>
+    <string name="today_release_movie">Today\'s Film Release</string>
+    <string name="alarm_release_today">Alarm Release Movie Today</string>
+    <string name="no_connection">No Connection</string>
+    <string name="loading">Please wait. . .</string>
 
 </resources>

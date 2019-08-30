@@ -2,9 +2,10 @@ package com.redveloper.filmmadekt.model.service
 
 import com.google.gson.GsonBuilder
 import com.redveloper.filmmadekt.model.movie.ResponMovie
-import com.redveloper.filmmadekt.model.tvshow.ResponTvshow
+import com.redveloper.filmmadekt.model.tvshow.ResponTvShow
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,20 +15,72 @@ import java.util.concurrent.TimeUnit
 
 interface BaseApi {
 
-    @GET("discover/movie?")
-    fun getDiscoverMoview(
+    //movie
+    //now playing
+    @GET("movie/now_playing?")
+    fun getNowPlayingMovie(
         @Query("api_key") api_key: String,
-        @Query("primary_release_date.gte") date_gte: String,
-        @Query("primary_release_date.lte") date_lte: String
+        @Query("language") languange: String,
+        @Query("page") page : Int
     ): Observable<ResponMovie>
 
+    //popular
+    @GET("movie/popular?")
+    fun getPopularMovie(
+        @Query("api_key") api_key: String,
+        @Query("languange") languange: String,
+        @Query("page") page: Int
+    ) : Observable<ResponMovie>
 
+    //comingsoon
+    @GET("movie/upcoming?")
+    fun getUpComingMovie(
+        @Query("api_key") api_key: String,
+        @Query("languange") languange: String,
+        @Query("page") page: Int
+    ) : Observable<ResponMovie>
+
+    //search movie
+    @GET("search/movie?")
+    fun searchMovie(
+        @Query("api_key") api_key : String,
+        @Query("language") languange: String,
+        @Query("query") query : String
+    ) : Observable<Response<ResponMovie>>
+
+    //tv show
+
+    //popular
     @GET("tv/popular?")
-    fun getTvShow(
+    fun getTvShowPopular(
         @Query("api_key") api_key: String,
         @Query("languange") languange : String,
-        @Query("page") page : String
-    ) : Observable<ResponTvshow>
+        @Query("page") page : Int
+    ) : Observable<ResponTvShow>
+
+    //top rated
+    @GET("tv/top_rated?")
+    fun getTvShowTopRated(
+        @Query("api_key") api_key: String,
+        @Query("language") languange: String,
+        @Query("page") page : Int
+    ) : Observable<ResponTvShow>
+
+    //search tv show
+    @GET("search/tv?")
+    fun searchTvShow(
+        @Query("api_key") api_key : String,
+        @Query("language") languange: String,
+        @Query("query") query: String
+    ) : Observable<Response<ResponTvShow>>
+
+    //release today
+    @GET("discover/movie?")
+    fun releaseTodayMovie(
+        @Query("api_key") api_key: String,
+        @Query("primary_release_date.gte") date_gte : String,
+        @Query("primary_release_date.lte") date_lte : String
+    ) : Observable<Response<ResponMovie>>
 
     companion object {
         var URL: String = "https://api.themoviedb.org/3/"
