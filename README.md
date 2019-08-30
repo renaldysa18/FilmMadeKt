@@ -27,3 +27,9 @@ In-app features:
 link for The Movie Db :
 https://www.themoviedb.org/documentation/api?language=en-US
 
+Thanks
+------
+* The **Android** and **Renaldy Sabdo** for the build this application.
+* Everyone who has contributed code and reported issues!
+
+Enjoy The Apps.
