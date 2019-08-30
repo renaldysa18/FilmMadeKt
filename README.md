@@ -2,6 +2,8 @@
 
 **Dicoding Movie Catalog**
 
+------
+
 preview application
 
 ![](static/ss_0.png)
