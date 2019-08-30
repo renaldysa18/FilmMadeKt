@@ -1,5 +1,6 @@
 # FilmMadeKt
-dicoding movie catalog
+
+**Dicoding Movie Catalog**
 
 preview application
 
