@@ -3,7 +3,7 @@ dicoding movie catalog
 
 preview application
 
-![](ss_0.png)
-![](ss_1.png)
-![](ss_2.png)
-![](ss_3.png)
+![](static/ss_0.png)
+![](static/ss_1.png)
+![](static/ss_2.png)
+![](static/ss_3.png)
