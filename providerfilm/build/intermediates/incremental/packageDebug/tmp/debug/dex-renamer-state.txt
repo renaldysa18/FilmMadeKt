@@ -1,0 +1,7 @@
+#Thu Aug 29 04:00:08 WIB 2019
+base.0=/Users/admin/StudioProjects/FilmMadeKt/providerfilm/build/intermediates/dex/debug/mergeExtDexDebug/out
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/admin/StudioProjects/FilmMadeKt/providerfilm/build/intermediates/dex/debug/mergeProjectDexDebug/out
