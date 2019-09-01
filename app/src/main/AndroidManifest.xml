@@ -22,7 +22,6 @@
         <activity
             android:name=".view.ui.activity.main.MainActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name=".widget.Favorite">
@@ -51,7 +50,6 @@
             android:name=".view.ui.activity.movie.MovieDetailActivity"
             android:label="@string/title_activity_movie_detail"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.ui.activity.SpalshScreenActivity">
             <intent-filter>
@@ -62,7 +60,6 @@
         </activity>
         <activity
             android:configChanges="orientation"
-            android:screenOrientation="portrait"
             android:name=".view.ui.activity.tvshow.TvshowDetailActivity"
             android:label="@string/title_activity_tvshow_detail"
             android:theme="@style/AppTheme.NoActionBar" />
