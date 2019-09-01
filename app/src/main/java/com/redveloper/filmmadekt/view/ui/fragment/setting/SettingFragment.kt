@@ -1,14 +1,17 @@
 package com.redveloper.filmmadekt.view.ui.fragment.setting
 
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.pixplicity.easyprefs.library.Prefs
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.presenter.setting.SettingPresenter
+import com.redveloper.filmmadekt.utils.Commons
 import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.view.SettingView
 import kotlinx.android.synthetic.main.fragment_setting.view.*
@@ -16,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_setting.view.*
 class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
 
     private lateinit var presenter: SettingPresenter
+    private lateinit var progress : ProgressDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +33,8 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         presenter = SettingPresenter(this)
+
+        progress = ProgressDialog(activity)
 
         view.switchbutton_bahasa_indo.setOnClickListener(this)
         view.switchbutton_bahasa_ing.setOnClickListener(this)
@@ -59,6 +65,18 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
         }
     }
 
+    override fun showLoading() {
+        progress.setMessage(context?.resources?.getString(R.string.loading))
+        progress.show()
+    }
+
+    override fun hideLoading() {
+        progress.dismiss()
+    }
+
+    override fun showMessage(msg : String) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+    }
 
     override fun switchIndo() {
         if (view?.switchbutton_bahasa_indo?.isChecked == true) {
@@ -88,11 +106,17 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
         if(view?.switchbutton_alarm_relase_movie_today?.isChecked == true){
             Prefs.putBoolean(Constant.CONST_SWITCH_ALARM_RELEASE_MOVIE_TODAY, true)
             presenter.changeColorOn(view?.switchbutton_alarm_relase_movie_today)
-            context?.let { presenter.settingReleaseTodayMovieAlarm(true, true, it) }
+
+            context?.resources?.getString(R.string.API_KEY)?.let {
+                presenter.getDataReleaseToday(
+                    it, Commons().getDateToday(), Commons().getDateToday(), context
+                )
+            }
+
         } else {
             Prefs.putBoolean(Constant.CONST_SWITCH_ALARM_RELEASE_MOVIE_TODAY, false)
             presenter.changeColorOff(view?.switchbutton_alarm_relase_movie_today)
-            context?.let { presenter.settingReleaseTodayMovieAlarm(false, false, it) }
+            context?.let { presenter.settingReleaseTodayMovieAlarm(false, false, it, null) }
         }
     }
 

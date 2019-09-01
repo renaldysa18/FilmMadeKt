@@ -12,6 +12,7 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import android.support.v4.app.NotificationCompat
 import com.redveloper.filmmadekt.R
+import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.utils.Constant
 import com.redveloper.filmmadekt.view.ui.activity.main.MainActivity
 import com.redveloper.filmmadekt.view.ui.fragment.releaseTodayMovie.ReleaseTodayMovieFragment
@@ -19,6 +20,17 @@ import com.redveloper.filmmadekt.view.ui.fragment.releaseTodayMovie.ReleaseToday
 class AlarmNotificationReleaseTodayReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val builder = NotificationCompat.Builder(context)
+
+        var titleMovie : String? = context?.resources?.getString(R.string.today_release_movie)
+
+        val extra = intent?.extras
+
+        if(extra != null &&
+            extra.getParcelable<ResponMovie.ResultMovie>(Constant.dataMovie) != null){
+            val data = extra.getParcelable<ResponMovie.ResultMovie>(Constant.dataMovie)
+
+            titleMovie = data.original_title
+        }
 
         val intent = Intent(context, MainActivity::class.java)
         intent.putExtra(Constant.CONST_NOTIF_RELEASE_MOVIE_TODAY, true)
@@ -31,7 +43,7 @@ class AlarmNotificationReleaseTodayReceiver : BroadcastReceiver() {
             .setSmallIcon(R.drawable.ic_movie)
             .setLargeIcon(BitmapFactory.decodeResource(context?.resources, R.drawable.ic_movie))
             .setContentTitle(context?.resources?.getString(R.string.app_name))
-            .setContentText(context?.resources?.getString(R.string.today_release_movie))
+            .setContentText(titleMovie)
             .setDefaults(Notification.DEFAULT_LIGHTS.or(Notification.DEFAULT_SOUND))
             .setContentInfo(context?.resources?.getString(R.string.info))
 

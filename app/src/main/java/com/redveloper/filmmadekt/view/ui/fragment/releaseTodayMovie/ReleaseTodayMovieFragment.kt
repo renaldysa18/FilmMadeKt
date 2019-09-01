@@ -14,6 +14,7 @@ import android.widget.Toast
 import com.redveloper.filmmadekt.R
 import com.redveloper.filmmadekt.model.movie.ResponMovie
 import com.redveloper.filmmadekt.presenter.releaseToday.ReleaseTodayMoviePresenter
+import com.redveloper.filmmadekt.utils.Commons
 import com.redveloper.filmmadekt.view.ui.fragment.movie.AdapterMovie
 import com.redveloper.filmmadekt.view.view.ReleaseTodayView
 import kotlinx.android.synthetic.main.fragment_release_today_movie.view.*
@@ -38,7 +39,7 @@ class ReleaseTodayMovieFragment : Fragment(), ReleaseTodayView.View {
         loading = ProgressDialog(context)
 
         showLoading()
-        callReleaseToday(presenter.getDateToday())
+        callReleaseToday(Commons().getDateToday())
     }
 
     override fun showLoading() {

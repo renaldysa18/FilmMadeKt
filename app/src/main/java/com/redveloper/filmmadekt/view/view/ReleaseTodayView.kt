@@ -17,6 +17,5 @@ interface ReleaseTodayView{
             date_gte : String,
             date_lte : String
         )
-        fun getDateToday() : String
     }
 }
