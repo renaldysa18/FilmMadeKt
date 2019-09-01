@@ -113,10 +113,14 @@ class SettingFragment : Fragment(), SettingView.View, View.OnClickListener {
                 )
             }
 
+            hideLoading()
+
         } else {
             Prefs.putBoolean(Constant.CONST_SWITCH_ALARM_RELEASE_MOVIE_TODAY, false)
             presenter.changeColorOff(view?.switchbutton_alarm_relase_movie_today)
             context?.let { presenter.settingReleaseTodayMovieAlarm(false, false, it, null) }
+
+            hideLoading()
         }
     }
 

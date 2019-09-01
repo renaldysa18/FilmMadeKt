@@ -123,6 +123,7 @@ class SettingPresenter(val view: SettingView.View) : SettingView.Presenter {
                 .subscribeWith(
                     object : DisposableObserver<Response<ResponMovie>>(){
                         override fun onComplete() {
+                            view.hideLoading()
                         }
 
                         override fun onNext(t: Response<ResponMovie>) {
