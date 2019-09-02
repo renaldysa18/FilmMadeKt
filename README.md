@@ -30,6 +30,8 @@ In-app features:
 link for The Movie Db :
 https://www.themoviedb.org/documentation/api?language=en-US
 
+Add your API Key inside values -> strings
+
 Thanks
 ------
 * The **Android** and **Renaldy Sabdo** for the build this application.
