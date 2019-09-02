@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">FilmMadeKt</string>
     <string name="BASE_IMAGE" translatable="false">https://image.tmdb.org/t/p/w300</string>
-    <string name="API_KEY" translatable="false">9764540cc75307bf937adec56fb19821</string>
+    <string name="API_KEY" translatable="false">...</string>
 
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
